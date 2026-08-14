@@ -1,0 +1,30 @@
+[
+  {
+    "order": 1,
+    "question": "How does your custom quoting process work?",
+    "answer": "We evaluate every project individually based on your required deliverables, scope depth, timeline, and asset formats. After reviewing your inquiry or chatting on WhatsApp, we provide a transparent, itemized proposal tailored specifically to your needs—with no rigid package markups.",
+    "category": "General",
+    "published": true
+  },
+  {
+    "order": 2,
+    "question": "What is the typical turnaround time for a brand identity or website?",
+    "answer": "Brand identity projects typically take 2 to 3 weeks from discovery to final delivery of master vector packages. Simple 1-to-3 page websites usually take 1 to 2 weeks including mobile responsiveness testing and WhatsApp integration.",
+    "category": "Process",
+    "published": true
+  },
+  {
+    "order": 3,
+    "question": "What file formats will I receive upon project completion?",
+    "answer": "For brand and graphic design deliverables, you will receive all production-ready master vector files (SVG, EPS, PDF) along with high-resolution web formats (PNG, WebP, JPG) with contrast variations and comprehensive guidelines.",
+    "category": "Deliverables",
+    "published": true
+  },
+  {
+    "order": 4,
+    "question": "How do we communicate throughout the creative project?",
+    "answer": "We maintain direct, responsive communication via WhatsApp and email. You will collaborate directly with our creative team at each milestone without bureaucratic agency layers.",
+    "category": "Collaboration",
+    "published": true
+  }
+]

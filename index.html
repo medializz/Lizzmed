@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lizzdo Media — Creative & Digital Services</title>
+    <meta name="description" content="Lizzdo Media — Creative and digital services division of Lizzdo. Branding, visual content, marketing & simple modern websites." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="/assets/logo.webp" />
+    <link rel="apple-touch-icon" href="/assets/logo.webp" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lizzdomedia.com/" />
+    <meta property="og:title" content="Lizzdo Media — Creative & Digital Services" />
+    <meta property="og:description" content="Creative & digital services division of Lizzdo. Branding, visual content, marketing & simple modern websites." />
+    <meta property="og:image" content="/assets/logo.webp" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://lizzdomedia.com/" />
+    <meta name="twitter:title" content="Lizzdo Media — Creative & Digital Services" />
+    <meta name="twitter:description" content="Creative & digital services division of Lizzdo. Branding, visual content, marketing & simple modern websites." />
+    <meta name="twitter:image" content="/assets/logo.webp" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://lizzdomedia.com/" />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- OnlineWebFonts: BubbledotICG-FinePos -->
+    <link
+      href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome 6.5.2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Full-viewport background video -->
+    <div class="bg" id="bg-container">
+      <video class="bg-video" autoplay muted loop playsinline id="background-video">
+        <source
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+
+    <!-- Main Page Layout Frame -->
+    <div class="page" id="main-page">
+      <!-- 1. Header (Desktop & Mobile) -->
+      <header class="header" id="page-header">
+        <a href="#home" class="logo-btn" id="header-logo" aria-label="Lizzdo Media Home">
+          <img src="/assets/logo.webp" alt="Lizzdo Media" width="52" height="52" />
+        </a>
+
+        <nav class="nav-pill" id="desktop-navigation" aria-label="Primary">
+          <a href="#home" class="nav-link active" id="nav-item-home">Home</a>
+          <a href="#services" class="nav-link" id="nav-item-services">Services</a>
+          <a href="#work" class="nav-link" id="nav-item-work">Work</a>
+          <a href="#about" class="nav-link" id="nav-item-about">About</a>
+          <a href="#blog" class="nav-link" id="nav-item-blog">Blog</a>
+        </nav>
+
+        <a href="#contact" class="sign-in-btn" id="header-signin">Start a Project</a>
+
+        <button
+          class="mobile-burger-btn"
+          id="mobile-burger-btn"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu-sheet"
+        >
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </button>
+      </header>
+
+      <!-- Mobile Sheet & Overlay -->
+      <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true"></div>
+      <nav
+        class="mobile-menu-sheet"
+        id="mobile-menu-sheet"
+        aria-label="Mobile Navigation"
+        aria-hidden="true"
+      >
+        <a href="#home" class="mobile-nav-link active">Home</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#work" class="mobile-nav-link">Work</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#blog" class="mobile-nav-link">Blog</a>
+        <a href="#contact" class="mobile-sign-in-btn">Start a Project</a>
+      </nav>
+
+      <!-- Dynamic View Mount Point -->
+      <div id="view-mount" style="width: 100%; display: flex; flex-direction: column; align-items: center; min-height: 0;">
+        <!-- Injected dynamically by main.js router -->
+      </div>
+    </div>
+
+    <!-- Vanilla Javascript Logic -->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

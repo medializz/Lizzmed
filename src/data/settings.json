@@ -1,0 +1,17 @@
+{
+  "companyName": "Lizzdo Media",
+  "division": "Creative & Digital Services Division of Lizzdo",
+  "tagline": "Branding, Content, Marketing & Websites",
+  "description": "Creative and digital services division of Lizzdo. Empowering modern businesses with enduring brand identities, high-impact marketing visuals, and streamlined websites.",
+  "logo": "/assets/logo.webp",
+  "favicon": "/assets/logo.webp",
+  "contactEmail": "hello@lizzdomedia.com",
+  "whatsappNumber": "+1234567890",
+  "instagramUrl": "https://instagram.com/lizzdomedia",
+  "facebookUrl": "https://facebook.com/lizzdomedia",
+  "linkedinUrl": "https://linkedin.com/company/lizzdo-media",
+  "copyrightText": "© 2026 Lizzdo Media. All rights reserved.",
+  "footerTagline": "A Lizzdo company",
+  "defaultSeoTitle": "Lizzdo Media — Creative & Digital Services",
+  "defaultSeoDescription": "Branding, visual content, digital marketing and simple modern websites designed for growing businesses."
+}

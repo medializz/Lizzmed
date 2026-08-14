@@ -1,0 +1,190 @@
+{
+  "hero": {
+    "line1": "Creative & Digital",
+    "line2": "Designed To Scale",
+    "subhead": "Branding, visual content, digital marketing and simple modern websites designed for growing businesses.",
+    "primaryCta": "Start a Project",
+    "secondaryCta": "View Our Work",
+    "trustLabel": "Creative & Digital Services by Lizzdo",
+    "badgeText": "Lizzdo Media Studio"
+  },
+  "stats": [
+    { "icon": "<", "target": 11, "suffix": "", "decimals": 0, "label": "Core Disciplines" },
+    { "icon": "%", "target": 100, "suffix": "%", "decimals": 0, "label": "Custom Tailored" },
+    { "icon": "*", "target": 24, "suffix": "/7", "decimals": 0, "label": "Digital Touchpoints" },
+    { "icon": "#", "target": 1, "suffix": "to-1", "decimals": 0, "label": "Direct Collaboration" }
+  ],
+  "intro": {
+    "badge": "01 // What We Do",
+    "headline": "Creative Craft Built for Growing Brands",
+    "paragraph1": "Lizzdo Media is the creative and digital services division of Lizzdo. We help businesses build a stronger visual identity, create consistent promotional content, execute targeted marketing campaigns, and establish a clean, professional digital presence.",
+    "paragraph2": "Every project is crafted with deliberate typography, high visual standards, and purposeful design. We work with founders, businesses, and creators who value clarity, quality, and direct communication without unnecessary complexity."
+  },
+  "servicesSection": {
+    "badge": "02 // Disciplines — 11 Core Capabilities",
+    "heading": "Comprehensive Creative & Digital Services",
+    "description": "From initial mark to market launch. Click any service to explore detailed deliverables and execution processes."
+  },
+  "expertise": {
+    "badge": "03 // What We Excel At",
+    "heading": "Specialized Creative Expertise",
+    "description": "A clear focus on the areas that deliver the highest visual and business impact for modern brands.",
+    "items": [
+      {
+        "code": "BRAND",
+        "title": "Brand Identity",
+        "glyph": "◆",
+        "desc": "Creating strong, memorable visual identities, logo marks, typography systems, and comprehensive brand guidelines that establish instant credibility.",
+        "link": "#services/brand-identity"
+      },
+      {
+        "code": "CONTENT",
+        "title": "Social Media & Content",
+        "glyph": "●",
+        "desc": "Designing consistent, high-engagement social media feeds, promotional carousels, stories, and announcement graphics that build active audiences.",
+        "link": "#services/social-media-design"
+      },
+      {
+        "code": "MARKETING",
+        "title": "Digital Marketing & Ads",
+        "glyph": "❖",
+        "desc": "Crafting targeted digital marketing campaigns and high-converting advertising creative suites for Meta, Google, and LinkedIn feeds.",
+        "link": "#services/digital-marketing"
+      },
+      {
+        "code": "WEB",
+        "title": "Website Development",
+        "glyph": "⬢",
+        "desc": "Creating fast, minimalist one-page, two-page, and three-page websites tailored for businesses that need a clean, authoritative online home.",
+        "link": "#services/website-development"
+      },
+      {
+        "code": "VISUALS",
+        "title": "AI & Visual Content",
+        "glyph": "✦",
+        "desc": "Producing bespoke AI-generated brand imagery, photorealistic product contexts, and cinematic key visuals with meticulous art direction.",
+        "link": "#services/ai-visual-content"
+      }
+    ]
+  },
+  "selectedWork": {
+    "badge": "04 // Portfolio Showcase",
+    "heading": "Selected Client Works",
+    "description": "A curated look at recent branding, marketing visuals, advertising sets, and digital platforms.",
+    "ctaText": "View All Portfolio Works"
+  },
+  "brandingShowcase": {
+    "badge": "05 // Brand Systems",
+    "heading": "Enduring Identity & Visual Systems",
+    "description": "A memorable brand is built on optical balance, disciplined typography, and a cohesive design system across all customer touchpoints.",
+    "elements": [
+      { "title": "Vector Logos & Marks", "desc": "Monograms, wordmarks, and responsive lockups." },
+      { "title": "Curated Typography", "desc": "Harmonious heading, body, and monospace hierarchies." },
+      { "title": "Color Palettes", "desc": "Strict contrast-tested digital & print color specifications." },
+      { "title": "Business Stationery", "desc": "Business cards, letterheads, and digital presentation decks." },
+      { "title": "Social Media Toolkits", "desc": "Cohesive avatar kits, headers, and post templates." },
+      { "title": "Packaging & Print", "desc": "Labels, boxes, merchandise, and promotional print collateral." }
+    ]
+  },
+  "socialShowcase": {
+    "badge": "06 // Social Media & Content",
+    "heading": "Consistent & Engaging Social Content",
+    "description": "We help brands maintain an active, professional visual presence across Instagram, LinkedIn, and Facebook with structured content systems.",
+    "items": [
+      { "title": "Instagram Feed Posts", "desc": "Custom-designed high-contrast visual posts." },
+      { "title": "Multi-Slide Carousels", "desc": "Educational frameworks built for saves and shares." },
+      { "title": "Stories & Announcements", "desc": "Engaging event teasers, sales, and product drops." },
+      { "title": "Campaign Visuals", "desc": "Cohesive promotional drops aligned with brand guidelines." }
+    ]
+  },
+  "marketingShowcase": {
+    "badge": "07 // Marketing & Advertising",
+    "heading": "Performance-Focused Marketing Creatives",
+    "description": "Connect your creative assets directly to business growth. We design scroll-stopping ad creatives for Meta Ads, Google Display, and LinkedIn.",
+    "points": [
+      "Targeted digital marketing strategies aligned with your business goals",
+      "High-converting ad sets engineered with clear visual hierarchy",
+      "Multiple size ratios optimized for feeds, stories, and display placements",
+      "No inflated promises or fake guarantees—just clean, high-impact creative execution"
+    ]
+  },
+  "webShowcase": {
+    "badge": "08 // Web Development",
+    "heading": "Simple, Fast Small-Business Websites",
+    "description": "Modern businesses need speed, clarity, and credibility. We build elegant 1-to-3 page websites without enterprise bloat.",
+    "tiers": [
+      {
+        "pages": "1-Page Website",
+        "desc": "A clean, high-impact single-page experience featuring your hero, services, portfolio, and direct WhatsApp contact routing."
+      },
+      {
+        "pages": "2-Page Website",
+        "desc": "Structured home overview paired with a dedicated service breakdown or case studies showcase for growing companies."
+      },
+      {
+        "pages": "3-Page Website",
+        "desc": "A complete professional web presence with Home, dedicated Services/Work, and a full Project Inquiry & Contact portal."
+      }
+    ],
+    "highlights": [
+      "Lightning-fast load performance & clean lightweight code",
+      "100% mobile responsive & touch-optimized design",
+      "Direct WhatsApp click-to-chat & contact form integration",
+      "SEO meta tags and social preview optimization included"
+    ]
+  },
+  "process": {
+    "badge": "09 // How We Work",
+    "heading": "Our 5-Step Creative Process",
+    "description": "A disciplined, transparent workflow from discovery to production-ready deliverables.",
+    "steps": [
+      {
+        "step": "01",
+        "name": "DISCOVER",
+        "desc": "We review your brand vision, target audience, aesthetic preferences, and specific project requirements."
+      },
+      {
+        "step": "02",
+        "name": "PLAN",
+        "desc": "We define the creative direction, scope boundaries, deliverables list, and clear execution roadmap."
+      },
+      {
+        "step": "03",
+        "name": "CREATE",
+        "desc": "Our team designs and builds the visual assets, websites, or campaigns with disciplined craftsmanship."
+      },
+      {
+        "step": "04",
+        "name": "REFINE",
+        "desc": "We present the work, collect your direct feedback, and fine-tune details to achieve complete optical polish."
+      },
+      {
+        "step": "05",
+        "name": "DELIVER",
+        "desc": "We package and deliver all production-ready master vector files, assets, or live website deployments."
+      }
+    ]
+  },
+  "aboutPreview": {
+    "badge": "10 // Division of Lizzdo",
+    "heading": "Behind Lizzdo Media",
+    "description": "Lizzdo Media operates as the dedicated creative and digital services division of Lizzdo. We combine visual artistry with strategic clarity to build enduring brand assets for forward-thinking enterprises.",
+    "ctaText": "More About Lizzdo Media"
+  },
+  "blogPreview": {
+    "badge": "11 // Knowledge & Strategy",
+    "heading": "Latest Insights",
+    "description": "Practical perspectives on branding, marketing creatives, social media, and digital platforms.",
+    "ctaText": "View All Articles"
+  },
+  "finalCta": {
+    "headline": "Ready to Build Something Remarkable?",
+    "subhead": "Whether you need a comprehensive brand identity, consistent social media content, high-converting ad creatives, or a fast modern website—we're ready to collaborate.",
+    "primaryBtn": "Start a Project",
+    "secondaryBtn": "Chat on WhatsApp"
+  },
+  "seo": {
+    "title": "Lizzdo Media — Creative & Digital Services Designed To Scale",
+    "description": "Branding, visual content, digital marketing, and simple modern websites crafted for growing brands."
+  }
+}

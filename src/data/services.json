@@ -1,0 +1,332 @@
+[
+  {
+    "order": 1,
+    "number": "01",
+    "slug": "brand-identity",
+    "title": "Brand Identity",
+    "shortTitle": "Brand Identity",
+    "summary": "Cohesive visual identity systems, typography pairings, color palettes, and comprehensive brand guidelines.",
+    "description": "Your brand is more than just a mark—it is the entire visual language through which your audience experiences your business. We craft enduring brand identity systems that establish credibility, convey distinct positioning, and adapt seamlessly across all digital and print touchpoints.",
+    "category": "Branding",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Full Visual Identity System & Guidelines",
+      "Curated Typography Pairings & Hierarchy",
+      "Custom Color Palettes & Tone Specifications",
+      "Brand Asset Kits & Multi-Format Exports",
+      "Stationery & Collateral Templates"
+    ],
+    "process": [
+      { "step": "01", "title": "Discovery & Strategy", "desc": "Understanding your business vision, target demographic, and market landscape." },
+      { "step": "02", "title": "Concept Directions", "desc": "Exploring distinct visual directions with moodboards and typography studies." },
+      { "step": "03", "title": "Refinement & Systems", "desc": "Developing the full asset ecosystem and testing scalability." },
+      { "step": "04", "title": "Brand Guidelines Delivery", "desc": "Packaging all master files with comprehensive usage documentation." }
+    ],
+    "iconGlyph": "◆",
+    "seoTitle": "Brand Identity Design — Lizzdo Media",
+    "seoDescription": "Enduring visual identity systems, typography pairings, and comprehensive brand guidelines."
+  },
+  {
+    "order": 2,
+    "number": "02",
+    "slug": "logo-design",
+    "title": "Logo Design",
+    "shortTitle": "Logo Design",
+    "summary": "Precision vector brand marks, memorable monograms, and modern typographic logos.",
+    "description": "We design memorable, timeless logos engineered for clarity at every scale—from app icons and favicons to physical signage and billboards. Every mark is constructed with mathematical precision and balanced optical rhythm.",
+    "category": "Logo Design",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Primary Vector Logo & Secondary Lockups",
+      "Submarks, Monograms & Favicon Sets",
+      "Dark & Light Contrast Variations",
+      "High-Resolution Vector Formats (SVG, EPS, PDF, PNG)",
+      "Clear Space & Sizing Specifications"
+    ],
+    "process": [
+      { "step": "01", "title": "Briefing & Concepting", "desc": "Gathering stylistic preferences and core brand values." },
+      { "step": "02", "title": "Sketching & Vectorizing", "desc": "Translating concepts into clean, geometrical vector artwork." },
+      { "step": "03", "title": "Critique & Polishing", "desc": "Fine-tuning optical weights, curves, and kerning." },
+      { "step": "04", "title": "Final Package Export", "desc": "Delivering complete production-ready file bundles." }
+    ],
+    "iconGlyph": "◈",
+    "seoTitle": "Vector Logo Design — Lizzdo Media",
+    "seoDescription": "Precision vector marks, monograms, and typographic logo systems."
+  },
+  {
+    "order": 3,
+    "number": "03",
+    "slug": "graphic-design",
+    "title": "Graphic Design",
+    "shortTitle": "Graphic Design",
+    "summary": "High-impact digital graphics, promotional collateral, banners, and bespoke marketing visuals.",
+    "description": "From promotional banners and marketing collateral to digital graphics and event assets, we create purposeful designs that command attention and communicate your message with absolute clarity.",
+    "category": "Graphic Design",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Digital Marketing Graphics & Web Banners",
+      "Print Collateral (Brochures, Menus, Signage)",
+      "Presentation Decks & Pitch Documents",
+      "Product Graphics & Merchandising Design",
+      "Custom Graphic Elements & Vectors"
+    ],
+    "process": [
+      { "step": "01", "title": "Requirements & Content", "desc": "Reviewing copy, dimensions, formats, and aesthetic requirements." },
+      { "step": "02", "title": "Layout Composition", "desc": "Structuring visual hierarchy with balanced typography and negative space." },
+      { "step": "03", "title": "Feedback & Revisions", "desc": "Iterating swiftly based on your feedback." },
+      { "step": "04", "title": "Production Deliverables", "desc": "Exporting print-ready CMYK or web-optimized RGB files." }
+    ],
+    "iconGlyph": "■",
+    "seoTitle": "High-Impact Graphic Design — Lizzdo Media",
+    "seoDescription": "Digital graphics, marketing banners, and bespoke visual collateral."
+  },
+  {
+    "order": 4,
+    "number": "04",
+    "slug": "flyer-design",
+    "title": "Flyer Design",
+    "shortTitle": "Flyer Design",
+    "summary": "Striking event flyers, promotional leaflets, commercial handouts, and social distribution sheets.",
+    "description": "Crafted for immediate visual engagement, our flyer designs combine bold typography, compelling visual focal points, and clear call-to-actions tailored for both physical printing and digital distribution.",
+    "category": "Flyer Design",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Commercial & Promotional Event Flyers",
+      "Digital Distribution Formats (Stories / Feeds / PDFs)",
+      "High-Resolution Print-Ready CMYK Files with Bleed",
+      "Multiple Size Adaptations (A4, A5, US Letter, Square)",
+      "Editable Source Files upon request"
+    ],
+    "process": [
+      { "step": "01", "title": "Event / Offer Brief", "desc": "Gathering event dates, highlights, pricing, and promotional copy." },
+      { "step": "02", "title": "Visual Layout", "desc": "Designing high-contrast, attention-grabbing compositions." },
+      { "step": "03", "title": "Review", "desc": "Reviewing details, contact info, and QR codes." },
+      { "step": "04", "title": "Export", "desc": "Delivering full print-bleed and web-ready versions." }
+    ],
+    "iconGlyph": "▲",
+    "seoTitle": "Promotional & Event Flyer Design — Lizzdo Media",
+    "seoDescription": "Striking commercial flyers, promotional leaflets, and social distribution sheets."
+  },
+  {
+    "order": 5,
+    "number": "05",
+    "slug": "social-media-design",
+    "title": "Social Media Design",
+    "shortTitle": "Social Media Design",
+    "summary": "Custom feed templates, stories, carousels, profile kits, and cohesive channel aesthetics.",
+    "description": "Build an unmistakable social presence with custom-designed feed templates, high-engagement carousels, animated story layouts, and cohesive platform banners that elevate your brand consistency.",
+    "category": "Social Media",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Instagram Feed Grid & Post Templates",
+      "Engaging Multi-Slide Carousel Frameworks",
+      "Story & Reel Cover Graphic Systems",
+      "Platform Header Banners (LinkedIn, X, YouTube, Facebook)",
+      "Highlight Icons & Profile Identity Kits"
+    ],
+    "process": [
+      { "step": "01", "title": "Aesthetic Audit", "desc": "Auditing current feeds and defining the visual tone." },
+      { "step": "02", "title": "Template System Creation", "desc": "Building modular, easy-to-use template layouts." },
+      { "step": "03", "title": "Testing & Grid Flow", "desc": "Checking grid harmony and mobile readability." },
+      { "step": "04", "title": "Master File Delivery", "desc": "Delivering ready-to-publish assets and Canva/Figma master files." }
+    ],
+    "iconGlyph": "●",
+    "seoTitle": "Social Media Design & Templates — Lizzdo Media",
+    "seoDescription": "Custom Instagram feed templates, multi-slide carousels, and channel branding."
+  },
+  {
+    "order": 6,
+    "number": "06",
+    "slug": "social-media-content",
+    "title": "Social Media Content",
+    "shortTitle": "Social Media Content",
+    "summary": "Engaging visual content creation, conversion-focused promotional media, and content storytelling.",
+    "description": "Consistent, high-quality content designed to resonate with your audience, spark organic conversations, and build trust. We combine striking visuals with sharp, brand-aligned messaging.",
+    "category": "Social Media",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Weekly & Monthly Visual Content Packs",
+      "Educational & Value-Driven Graphic Posts",
+      "Customer Testimonial & Social Proof Cards",
+      "Product Spotlight & Promotional Visuals",
+      "Storytelling Graphics & Infographics"
+    ],
+    "process": [
+      { "step": "01", "title": "Content Calendar Planning", "desc": "Identifying key content pillars and campaign themes." },
+      { "step": "02", "title": "Asset Production", "desc": "Designing custom visuals tailored for maximum engagement." },
+      { "step": "03", "title": "Copy & Caption Pairing", "desc": "Matching visuals with crisp, action-oriented captions." },
+      { "step": "04", "title": "Delivery & Scheduling", "desc": "Delivering organized monthly content drops." }
+    ],
+    "iconGlyph": "✦",
+    "seoTitle": "Visual Social Media Content Creation — Lizzdo Media",
+    "seoDescription": "Consistent, high-engagement visual content and promotional assets."
+  },
+  {
+    "order": 7,
+    "number": "07",
+    "slug": "social-media-management",
+    "title": "Social Media Management",
+    "shortTitle": "Social Media Management",
+    "summary": "End-to-end profile curation, content scheduling, audience growth strategy, and consistency.",
+    "description": "Free up your time while keeping your social channels vibrant and active. We oversee content scheduling, visual curation, platform optimization, and audience engagement strategy.",
+    "category": "Social Media",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Full Profile Curation & Optimization",
+      "Automated & Timely Content Scheduling",
+      "Audience Engagement & Community Monitoring Strategy",
+      "Monthly Performance & Reach Insights",
+      "Hashtag & Keyword Strategy Optimization"
+    ],
+    "process": [
+      { "step": "01", "title": "Onboarding & Access", "desc": "Setting up publishing pipelines and brand tone guidelines." },
+      { "step": "02", "title": "Strategy Implementation", "desc": "Executing planned content schedules consistently." },
+      { "step": "03", "title": "Community Interaction", "desc": "Keeping profiles active and engaging." },
+      { "step": "04", "title": "Review & Refinement", "desc": "Analyzing performance data to refine content strategy." }
+    ],
+    "iconGlyph": "✶",
+    "seoTitle": "Social Media Management — Lizzdo Media",
+    "seoDescription": "Profile curation, scheduled publishing, and audience growth."
+  },
+  {
+    "order": 8,
+    "number": "08",
+    "slug": "digital-marketing",
+    "title": "Digital Marketing",
+    "shortTitle": "Digital Marketing",
+    "summary": "Integrated digital marketing strategies, audience targeting creatives, and promotional roadmaps.",
+    "description": "Connect your creative assets to tangible business growth. We craft targeted digital marketing strategies and promotional creatives designed to attract prospects, generate leads, and boost conversions.",
+    "category": "Marketing",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Integrated Digital Marketing Strategy",
+      "Target Audience & Customer Persona Mapping",
+      "Promotional Campaign Creatives & Banners",
+      "Lead Magnet Design & Promotional Graphics",
+      "Campaign Performance Analysis Guidance"
+    ],
+    "process": [
+      { "step": "01", "title": "Goal Definition", "desc": "Establishing clear campaign KPIs and target milestones." },
+      { "step": "02", "title": "Campaign Architecture", "desc": "Structuring message hierarchy and promotional channels." },
+      { "step": "03", "title": "Creative Production", "desc": "Generating high-converting promotional assets." },
+      { "step": "04", "title": "Launch & Optimization", "desc": "Monitoring campaign signals and refining creative performance." }
+    ],
+    "iconGlyph": "❖",
+    "seoTitle": "Targeted Digital Marketing — Lizzdo Media",
+    "seoDescription": "Performance marketing strategies, audience targeting, and promotional roadmaps."
+  },
+  {
+    "order": 9,
+    "number": "09",
+    "slug": "advertising",
+    "title": "Advertising Creatives",
+    "shortTitle": "Advertising Creatives",
+    "summary": "High-converting ad sets, paid social graphics, display ad suites, and performance banners.",
+    "description": "Stand out in crowded feeds. We design high-converting advertising creatives for Meta, Google Ads, LinkedIn, and TikTok that stop the scroll and drive measurable click-through rates.",
+    "category": "Advertising",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Meta Ads (Facebook & Instagram Feed + Stories)",
+      "Google Display Network Banners (Standard Responsive Sizes)",
+      "LinkedIn Sponsored Content Visuals",
+      "A/B Testing Creative Variations (Headlines & Imagery)",
+      "Ad Copy Alignment & CTA Focus"
+    ],
+    "process": [
+      { "step": "01", "title": "Ad Objective & Placement", "desc": "Identifying platforms, formats, and conversion targets." },
+      { "step": "02", "title": "Hook & Angle Design", "desc": "Developing multiple visual hooks for testing." },
+      { "step": "03", "title": "Multi-Size Generation", "desc": "Exporting every pixel-perfect ratio required." },
+      { "step": "04", "title": "Iterative Optimization", "desc": "Delivering fresh ad variations based on test results." }
+    ],
+    "iconGlyph": "⬡",
+    "seoTitle": "High-Converting Advertising Creatives — Lizzdo Media",
+    "seoDescription": "Paid social ad suites, display banners, and scroll-stopping performance creatives."
+  },
+  {
+    "order": 10,
+    "number": "10",
+    "slug": "ai-visual-content",
+    "title": "AI Visual Content",
+    "shortTitle": "AI Visual Content",
+    "summary": "Bespoke AI-generated brand imagery, concept visuals, cinematic promotional graphics, and art direction.",
+    "description": "Harness cutting-edge AI generation directed by seasoned designers. We produce hyper-customized, cinematic, or photo-realistic brand imagery that would otherwise require costly commercial photo shoots.",
+    "category": "AI Visuals",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss This Service",
+    "deliverables": [
+      "Custom AI-Generated Brand Visuals & Scenes",
+      "Photorealistic Commercial & Product Context Imagery",
+      "Conceptual Key Art & Futuristic Visuals",
+      "High-Resolution Upscaling & Post-Processing Retouching",
+      "Proprietary Prompt Direction & Consistency Styling"
+    ],
+    "process": [
+      { "step": "01", "title": "Prompt Engineering & Moodboard", "desc": "Defining aesthetic parameters, lighting, and camera angles." },
+      { "step": "02", "title": "Iterative Generation", "desc": "Exploring dozens of variations to pinpoint ideal compositions." },
+      { "step": "03", "title": "Manual Retouching & Compositing", "desc": "Polishing details, color grading, and cleaning artifacts." },
+      { "step": "04", "title": "High-Res Master Delivery", "desc": "Upscaling to ultra-high resolution for web and print." }
+    ],
+    "iconGlyph": "✦",
+    "seoTitle": "Art-Directed AI Visual Content — Lizzdo Media",
+    "seoDescription": "Bespoke AI-generated brand imagery, photorealistic product contexts, and cinematic key visuals."
+  },
+  {
+    "order": 11,
+    "number": "11",
+    "slug": "website-development",
+    "title": "Website Development",
+    "shortTitle": "Website Development",
+    "summary": "Simple, fast, and professional 1-page, 2-page, and 3-page websites tailored for businesses.",
+    "description": "Establish a modern, lightning-fast digital home for your brand. We build clean, high-performance one-page, two-page, and three-page websites designed specifically for businesses looking for an authoritative online presence without unnecessary bloat.",
+    "category": "Websites",
+    "featuredImage": "/assets/logo.webp",
+    "published": true,
+    "featured": true,
+    "ctaText": "Discuss Website Project",
+    "deliverables": [
+      "Clean One-Page, Two-Page, or Three-Page Architecture",
+      "100% Mobile Responsive & Touch-Optimized Layouts",
+      "Blazing Fast Load Times & Clean Code",
+      "Contact & WhatsApp Click-to-Chat Integration",
+      "SEO Optimization & Social Sharing Meta Tags"
+    ],
+    "process": [
+      { "step": "01", "title": "Structure & Content Mapping", "desc": "Outlining pages, sections, and clear conversion paths." },
+      { "step": "02", "title": "Visual Design & Prototyping", "desc": "Crafting modern layouts aligned with your brand identity." },
+      { "step": "03", "title": "Development & Testing", "desc": "Building clean responsive code and testing across devices." },
+      { "step": "04", "title": "Launch & Handover", "desc": "Deploying to fast hosting and verifying all integrations." }
+    ],
+    "iconGlyph": "⬢",
+    "seoTitle": "Fast 1-to-3 Page Website Development — Lizzdo Media",
+    "seoDescription": "Clean, high-performance 1-page, 2-page, and 3-page websites with integrated WhatsApp channels."
+  }
+]

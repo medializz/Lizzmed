@@ -1,0 +1,87 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+media_folder: "public/assets"
+public_folder: "/assets"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "src/data/settings.json"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "WhatsApp Number", name: "whatsappNumber", widget: "string", hint: "Format with country code, e.g. +1234567890" }
+          - { label: "Contact Email", name: "contactEmail", widget: "string" }
+          - { label: "Instagram URL", name: "instagramUrl", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedinUrl", widget: "string" }
+          - { label: "Facebook URL", name: "facebookUrl", widget: "string" }
+          - { label: "Footer Tagline", name: "footerTagline", widget: "string" }
+
+  - name: "homepage"
+    label: "Homepage Content"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "hero"
+        label: "Hero & Overview"
+        file: "src/data/home.json"
+        fields:
+          - { label: "Hero Line 1", name: "heroLine1", widget: "string" }
+          - { label: "Hero Line 2", name: "heroLine2", widget: "string" }
+          - { label: "Subhead Description", name: "subhead", widget: "text" }
+          - { label: "Trust Row Label", name: "trustLabel", widget: "string" }
+          - { label: "Primary CTA Label", name: "primaryCta", widget: "string" }
+          - { label: "Secondary CTA Label", name: "secondaryCta", widget: "string" }
+
+  - name: "services"
+    label: "Services"
+    folder: "src/data/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Number", name: "number", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Short Summary", name: "summary", widget: "string" }
+      - { label: "Full Description", name: "description", widget: "text" }
+      - { label: "What We Provide", name: "deliverables", widget: "list" }
+      - { label: "Process Steps", name: "process", widget: "list" }
+      - { label: "Icon Glyph", name: "iconGlyph", widget: "string" }
+
+  - name: "portfolio"
+    label: "Portfolio / Work"
+    folder: "src/data/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Branding", "Logo Design", "Social Media", "Flyers", "Marketing", "Advertising", "AI Visuals", "Websites"] }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Services Provided", name: "services", widget: "list" }
+
+  - name: "blog"
+    label: "Blog Articles"
+    folder: "src/data/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Branding", "Marketing", "Social Media", "Design", "Web Development", "Business"] }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Read Time", name: "readTime", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }

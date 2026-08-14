@@ -1,0 +1,6 @@
+{
+  "name": "Lizzdo Media",
+  "description": "Creative & digital services division of Lizzdo — Branding, Content, Marketing & Websites.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

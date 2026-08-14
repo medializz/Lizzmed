@@ -1,0 +1,313 @@
+[
+  {
+    "order": 1,
+    "slug": "aurora-sound-lab",
+    "title": "Aurora Sound Lab",
+    "client": "Aurora Audio Tech",
+    "year": "2026",
+    "category": "Branding",
+    "industry": "Audio & Acoustic Technology",
+    "summary": "Complete visual identity and product launch system for an acoustic technology studio.",
+    "description": "Developed an authoritative, dark-mode visual identity system featuring custom typography lockups, packaging concepts, and social launch assets for Aurora Sound Lab's acoustic monitors.",
+    "objective": "Establish an unmistakable, premium brand identity that positions Aurora Audio Tech at the forefront of high-precision audio monitoring while maintaining a sleek, minimalist aesthetic.",
+    "creativeDirection": "High-contrast dark-mode palette, mathematical grid structures, geometric typography pairings, and clean acoustic wave abstractions that communicate technical precision without visual clutter.",
+    "services": ["Brand Identity", "Logo Design", "Graphic Design"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "Core Brand Guidelines",
+        "desc": "Typographic hierarchy rules, optical kerning specs, and strict color values for digital and physical touchpoints.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Packaging Architecture",
+        "desc": "Precision unboxing layout with foil-stamped monochrome accents and structural foam inserts.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Product Launch Visual Suite",
+        "desc": "High-resolution digital campaign banners and modular social media teasers.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "https://instagram.com/lizzdomedia",
+    "featured": true,
+    "published": true,
+    "seoTitle": "Aurora Sound Lab Case Study — Lizzdo Media",
+    "seoDescription": "Visual identity, logo system, and acoustic technology brand launch by Lizzdo Media."
+  },
+  {
+    "order": 2,
+    "slug": "solis-venture-logo",
+    "title": "Solis Venture Partners",
+    "client": "Solis Capital Group",
+    "year": "2026",
+    "category": "Logo Design",
+    "industry": "Venture Capital & Investment",
+    "summary": "Precision vector monogram and typographic lockup for a modern technology investment fund.",
+    "description": "Engineered a timeless, geometrically balanced vector mark combining solar geometry with modern serif typography, adaptable from luxury stationery to mobile favicons.",
+    "objective": "Craft an enduring, executive mark that conveys trust, clarity, and visionary growth for high-net-worth investors and portfolio founders.",
+    "creativeDirection": "Clean geometric solar rays enclosed in an interlocking hexagonal monogram, paired with subtle warm neutrals and crisp letter-spacing.",
+    "services": ["Logo Design", "Brand Identity"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "Primary Vector Lockup",
+        "desc": "Scalable SVG/EPS master formats with negative space balance calculations.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Stationery & Card Suite",
+        "desc": "Letterpressed cotton business cards with blind debossed monogram accents.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "https://instagram.com/lizzdomedia",
+    "featured": true,
+    "published": true,
+    "seoTitle": "Solis Venture Partners Logo Case Study — Lizzdo Media",
+    "seoDescription": "Precision vector monogram and corporate identity system for Solis Venture Partners."
+  },
+  {
+    "order": 3,
+    "slug": "lumina-studio-social",
+    "title": "Lumina Creative Studio",
+    "client": "Lumina Media",
+    "year": "2026",
+    "category": "Social Media",
+    "industry": "Creative Agency & Production",
+    "summary": "Curated visual content series, modular carousel frameworks, and story systems.",
+    "description": "Architected a cohesive 30-day visual content framework for Instagram and LinkedIn, delivering educational multi-slide carousels, striking quote cards, and branded story highlights.",
+    "objective": "Transform Lumina's social presence into a cohesive, high-retention authority hub that drives profile visits and direct client inquiries.",
+    "creativeDirection": "Curated grid flow with alternating deep charcoal cards and crisp white accents, legible typography for mobile feeds, and deliberate visual rhythm.",
+    "services": ["Social Media Design", "Social Media Content", "Graphic Design"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "10-Slide Educational Carousels",
+        "desc": "High-retention slide frameworks formatted for effortless reading on mobile viewports.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Story Drop Templates",
+        "desc": "Engaging vertical story graphics with interactive polling and announcement zones.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "https://instagram.com/lizzdomedia",
+    "featured": true,
+    "published": true,
+    "seoTitle": "Lumina Creative Studio Social Campaign — Lizzdo Media",
+    "seoDescription": "Curated visual content frameworks and social growth system by Lizzdo Media."
+  },
+  {
+    "order": 4,
+    "slug": "apex-performance-ads",
+    "title": "Apex Performance Athletics",
+    "client": "Apex Athletics Inc.",
+    "year": "2025",
+    "category": "Advertising",
+    "industry": "Performance Apparel & Fitness",
+    "summary": "High-converting paid social ad creative suite across feed, story, and display formats.",
+    "description": "Engineered a multi-ratio advertising creative system featuring bold typography, dynamic product callouts, and clear conversion paths for Meta and Google campaigns.",
+    "objective": "Increase paid ad click-through rates and reduce customer acquisition costs through high-contrast visual hooks and concise benefit hierarchy.",
+    "creativeDirection": "Kinetic typography, high-contrast monochrome backgrounds with electric accent highlights, and unmistakable call-to-action blocks.",
+    "services": ["Advertising Creatives", "Digital Marketing", "Graphic Design"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "Feed Placement Variations (1:1)",
+        "desc": "Square feed creatives optimized for thumb-stopping contrast in busy timelines.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Story & Vertical Suite (9:16)",
+        "desc": "Full-bleed vertical video and motion-ready static creatives.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "",
+    "featured": true,
+    "published": true,
+    "seoTitle": "Apex Performance Advertising Suite — Lizzdo Media",
+    "seoDescription": "Paid social ad creative suite and campaign collateral by Lizzdo Media."
+  },
+  {
+    "order": 5,
+    "slug": "strata-advisory-website",
+    "title": "Strata Advisory Partners",
+    "client": "Strata Advisory LLP",
+    "year": "2026",
+    "category": "Websites",
+    "industry": "Strategic Management Consulting",
+    "summary": "Fast, minimalist 3-page corporate website with direct WhatsApp inquiry routing.",
+    "description": "Designed and deployed a lightweight, responsive corporate web experience highlighting advisory capabilities, case studies, and integrated contact channels with zero bloat.",
+    "objective": "Provide an executive-grade digital home that loads instantaneously, communicates core capabilities with absolute clarity, and converts prospective enterprise clients directly.",
+    "creativeDirection": "Generous negative space, refined typography hierarchy, subtle entrance micro-transitions, and distraction-free mobile layout.",
+    "services": ["Website Development", "Brand Identity"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "Executive Homepage Architecture",
+        "desc": "Fast-loading landing experience with structured capability overviews.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Case Study & Service Views",
+        "desc": "Clean modular content hierarchy designed for rapid executive scanning.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "",
+    "featured": true,
+    "published": true,
+    "seoTitle": "Strata Advisory Website Case Study — Lizzdo Media",
+    "seoDescription": "Fast 3-page business web experience with integrated inquiry channels by Lizzdo Media."
+  },
+  {
+    "order": 6,
+    "slug": "vortex-ai-key-visuals",
+    "title": "Vortex Intelligence Visuals",
+    "client": "Vortex AI Systems",
+    "year": "2026",
+    "category": "AI Visuals",
+    "industry": "Artificial Intelligence & Computing",
+    "summary": "Hyper-realistic AI brand imagery and futuristic conceptual marketing assets.",
+    "description": "Art-directed and synthesized bespoke promotional key visuals for web headers, conference stage backdrops, and digital marketing collateral.",
+    "objective": "Generate high-resolution, otherworldly visual concepts that represent cutting-edge neural computing without relying on generic stock photography.",
+    "creativeDirection": "Deep space luminescent optics, neural glass refractions, and cinematic lighting tuned precisely to brand color standards.",
+    "services": ["AI Visual Content", "Graphic Design"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "Neural Mesh Art Series",
+        "desc": "Ultra-high-definition conceptual renders formatted for widescreen stage displays.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Marketing Hero Visuals",
+        "desc": "Art-directed promotional backgrounds integrated into product landing pages.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "",
+    "featured": false,
+    "published": true,
+    "seoTitle": "Vortex AI Key Visuals Case Study — Lizzdo Media",
+    "seoDescription": "Bespoke conceptual key visuals and AI-directed marketing assets by Lizzdo Media."
+  },
+  {
+    "order": 7,
+    "slug": "kroma-festival-flyers",
+    "title": "Kroma Music & Arts Showcase",
+    "client": "Kroma Events Live",
+    "year": "2025",
+    "category": "Flyer Design",
+    "industry": "Live Entertainment & Music",
+    "summary": "High-contrast event flyers and multi-format promotional distribution assets.",
+    "description": "Created striking print and digital flyers featuring custom typographical treatment, line-up timetables, and digital teaser kits for social distribution.",
+    "objective": "Deliver print-ready A4/A3 posters alongside high-resolution digital flyers optimized for instant recognition across Instagram and WhatsApp stories.",
+    "creativeDirection": "Bold typographic headline lockups, high-contrast monochrome texture, and organized line-up grid hierarchy.",
+    "services": ["Flyer Design", "Graphic Design", "Social Media Content"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "Print Poster Suite (A3/A4)",
+        "desc": "CMYK print-ready files with 300 DPI bleed and vector type lockups.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Digital Distribution Set",
+        "desc": "Optimized RGB digital graphics formatted for messaging platforms and social feeds.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "",
+    "featured": false,
+    "published": true,
+    "seoTitle": "Kroma Event Flyer Design — Lizzdo Media",
+    "seoDescription": "High-contrast event flyers and digital distribution assets by Lizzdo Media."
+  },
+  {
+    "order": 8,
+    "slug": "elemental-brand-collateral",
+    "title": "Elemental Coffee Roasters",
+    "client": "Elemental Roasts",
+    "year": "2025",
+    "category": "Graphic Design",
+    "industry": "Artisan Food & Beverage",
+    "summary": "Complete packaging label system, menu boards, and promotional collateral.",
+    "description": "Crafted clean label architecture for artisan coffee blends, tabletop cards, cafe menu boards, and branded digital assets.",
+    "objective": "Establish a consistent, earthy yet modern packaging visual language that stands out on retail shelves and cafe counters.",
+    "creativeDirection": "Minimalist grid layouts, distinct origin color accents, tactile paper textures, and clean ingredient hierarchy.",
+    "services": ["Graphic Design", "Brand Identity"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "Bag Label Architecture",
+        "desc": "Modular roast level and tasting note stickers with distinctive accent bars.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Cafe Menu Boards",
+        "desc": "High-legibility typography layouts for digital displays and physical wooden boards.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "",
+    "featured": false,
+    "published": true,
+    "seoTitle": "Elemental Coffee Roasters Design — Lizzdo Media",
+    "seoDescription": "Artisan coffee packaging, menus, and brand collateral by Lizzdo Media."
+  },
+  {
+    "order": 9,
+    "slug": "nexus-digital-marketing",
+    "title": "Nexus Cloud Marketing Campaign",
+    "client": "Nexus Software",
+    "year": "2026",
+    "category": "Marketing",
+    "industry": "Enterprise Software & Cloud",
+    "summary": "Multi-channel digital marketing launch campaign and conversion graphics.",
+    "description": "Developed campaign concepts, email promotional graphics, landing page collateral, and social media announcements for Nexus's cloud migration platform.",
+    "objective": "Build unified visual messaging across email, display, and social channels to drive product demo registrations.",
+    "creativeDirection": "Clean technical diagrams, crisp typography hierarchy, and conversion-focused value pillars.",
+    "services": ["Digital Marketing", "Advertising Creatives", "Graphic Design"],
+    "featuredImage": "/assets/logo.webp",
+    "gallery": [
+      {
+        "title": "Campaign Launch Banners",
+        "desc": "Display ads and newsletter header visual suite.",
+        "image": "/assets/logo.webp"
+      },
+      {
+        "title": "Feature Callout Infographics",
+        "desc": "Simplified cloud migration architecture visualizers.",
+        "image": "/assets/logo.webp"
+      }
+    ],
+    "videoUrl": "",
+    "websiteUrl": "",
+    "instagramUrl": "",
+    "featured": false,
+    "published": true,
+    "seoTitle": "Nexus Cloud Marketing Campaign — Lizzdo Media",
+    "seoDescription": "Multi-channel digital marketing campaign and promotional graphics by Lizzdo Media."
+  }
+]
