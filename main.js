@@ -1920,7 +1920,24 @@ function renderContactPage(container, queryParams) {
     'contact'
   );
 
-  const preselectedService = queryParams ? (queryParams.get('service') || '') : '';
+  const rawServiceParam = queryParams ? (queryParams.get('service') || '').trim() : '';
+  let matchedServiceTitle = '';
+  
+  if (rawServiceParam) {
+    const cleanParam = rawServiceParam.toLowerCase().replace(/[-_]/g, ' ');
+    const found = services.find(s => 
+      s.slug.toLowerCase() === rawServiceParam.toLowerCase() ||
+      s.title.toLowerCase() === rawServiceParam.toLowerCase() ||
+      s.title.toLowerCase() === cleanParam ||
+      (s.shortTitle && s.shortTitle.toLowerCase() === rawServiceParam.toLowerCase()) ||
+      (s.shortTitle && s.shortTitle.toLowerCase() === cleanParam)
+    );
+    if (found) {
+      matchedServiceTitle = found.title;
+    } else if (rawServiceParam.toLowerCase().includes('multiple')) {
+      matchedServiceTitle = 'Multiple Services / Comprehensive Scope';
+    }
+  }
 
   container.innerHTML = `
     <div class="view-container">
@@ -1947,22 +1964,24 @@ function renderContactPage(container, queryParams) {
             <div class="form-row-2">
               <div class="form-group">
                 <label class="form-label" for="client-name">Your Full Name <span class="required-star">*</span></label>
-                <input class="form-input" type="text" id="client-name" name="name" placeholder="Alex Morgan" required />
+                <input class="form-input" type="text" id="client-name" name="name" placeholder="Alex Morgan" required autocomplete="name" />
+                <span class="form-field-error" id="err-client-name">Please enter your name.</span>
               </div>
               <div class="form-group">
                 <label class="form-label" for="client-business">Business or Brand Name</label>
-                <input class="form-input" type="text" id="client-business" name="business" placeholder="Morgan Studio" />
+                <input class="form-input" type="text" id="client-business" name="business" placeholder="Morgan Studio" autocomplete="organization" />
               </div>
             </div>
 
             <div class="form-row-2">
               <div class="form-group">
                 <label class="form-label" for="client-email">Email Address <span class="required-star">*</span></label>
-                <input class="form-input" type="email" id="client-email" name="email" placeholder="alex@morganstudio.com" required />
+                <input class="form-input" type="email" id="client-email" name="email" placeholder="alex@morganstudio.com" required autocomplete="email" />
+                <span class="form-field-error" id="err-client-email">Please provide a valid email address.</span>
               </div>
               <div class="form-group">
                 <label class="form-label" for="client-phone">WhatsApp / Phone Number</label>
-                <input class="form-input" type="tel" id="client-phone" name="phone" placeholder="+1 (555) 019-2834" />
+                <input class="form-input" type="tel" id="client-phone" name="phone" placeholder="+1 (555) 019-2834" autocomplete="tel" />
               </div>
             </div>
 
@@ -1970,19 +1989,20 @@ function renderContactPage(container, queryParams) {
               <div class="form-group">
                 <label class="form-label" for="client-service">Service Required <span class="required-star">*</span></label>
                 <select class="form-select" id="client-service" name="service" required>
-                  <option value="" disabled ${!preselectedService ? 'selected' : ''}>Select a service...</option>
+                  <option value="" disabled ${!matchedServiceTitle ? 'selected' : ''}>Select a service...</option>
                   ${services
                     .map(
                       (s) => `
-                    <option value="${escapeHtml(s.title)}" ${preselectedService.toLowerCase() === s.title.toLowerCase() || preselectedService.toLowerCase() === (s.shortTitle || '').toLowerCase() ? 'selected' : ''}>
+                    <option value="${escapeHtml(s.title)}" ${matchedServiceTitle === s.title ? 'selected' : ''}>
                       ${s.number || ''} — ${s.title}
                     </option>
                   `
                     )
                     .join('')}
-                  <option value="Multiple Services / Comprehensive Package" ${preselectedService.includes('Multiple') ? 'selected' : ''}>Multiple Services / Comprehensive Package</option>
+                  <option value="Multiple Services / Comprehensive Scope" ${matchedServiceTitle === 'Multiple Services / Comprehensive Scope' ? 'selected' : ''}>Multiple Services / Comprehensive Scope</option>
                   <option value="Other Creative Request">Other Creative Request</option>
                 </select>
+                <span class="form-field-error" id="err-client-service">Please select a service.</span>
               </div>
 
               <div class="form-group">
@@ -2012,6 +2032,7 @@ function renderContactPage(container, queryParams) {
             <div class="form-group">
               <label class="form-label" for="client-description">Project Description & Requirements <span class="required-star">*</span></label>
               <textarea class="form-textarea" id="client-description" name="description" rows="4" placeholder="Briefly describe your goals, required deliverables, style preferences, or any questions..." required></textarea>
+              <span class="form-field-error" id="err-client-description">Please provide a brief description of your project.</span>
             </div>
 
             <div class="form-actions">
@@ -2020,13 +2041,17 @@ function renderContactPage(container, queryParams) {
                 <span>Chat on WhatsApp</span>
               </button>
 
-              <button type="submit" class="btn-secondary-action">
+              <button type="submit" id="btn-submit-inquiry" class="btn-secondary-action">
                 Submit Inquiry via Email
               </button>
             </div>
 
             <div class="form-success-banner" id="form-success-message">
               Thank you! Your project inquiry has been received. Our team will review your requirements and respond within 24 hours.
+            </div>
+
+            <div class="form-error-banner" id="form-error-message">
+              Please complete all required fields (Name, Email, Service, Project Description) before submitting. Or click above to chat directly on WhatsApp.
             </div>
 
           </form>
@@ -2037,23 +2062,53 @@ function renderContactPage(container, queryParams) {
     </div>
   `;
 
-  // Form submission handler
+  // Form submission & interactive handlers
   const form = container.querySelector('#project-inquiry-form');
   const successBanner = container.querySelector('#form-success-message');
+  const errorBanner = container.querySelector('#form-error-message');
   const btnWhatsApp = container.querySelector('#btn-send-whatsapp');
+
+  const nameInput = container.querySelector('#client-name');
+  const emailInput = container.querySelector('#client-email');
+  const serviceInput = container.querySelector('#client-service');
+  const descInput = container.querySelector('#client-description');
+
+  const clearErrors = () => {
+    container.querySelectorAll('.form-field-error').forEach(el => el.classList.remove('visible'));
+    container.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+    if (errorBanner) errorBanner.classList.remove('visible');
+  };
+
+  [nameInput, emailInput, serviceInput, descInput].forEach(input => {
+    if (input) {
+      input.addEventListener('input', () => {
+        input.classList.remove('invalid');
+        const errEl = container.querySelector(`#err-${input.id}`);
+        if (errEl) errEl.classList.remove('visible');
+        if (errorBanner) errorBanner.classList.remove('visible');
+      });
+      if (input.tagName === 'SELECT') {
+        input.addEventListener('change', () => {
+          input.classList.remove('invalid');
+          const errEl = container.querySelector(`#err-${input.id}`);
+          if (errEl) errEl.classList.remove('visible');
+        });
+      }
+    }
+  });
 
   if (btnWhatsApp) {
     btnWhatsApp.addEventListener('click', () => {
-      const name = (document.getElementById('client-name').value || '').trim() || 'Prospective Client';
-      const business = (document.getElementById('client-business').value || '').trim() || 'N/A';
-      const service = (document.getElementById('client-service').value || '').trim() || 'Creative Services';
-      const timeline = (document.getElementById('client-timeline').value || '').trim() || 'Flexible';
-      const budget = (document.getElementById('client-budget').value || '').trim() || 'Not specified';
-      const desc = (document.getElementById('client-description').value || '').trim() || 'Interested in discussing a custom project quote.';
+      const name = (nameInput?.value || '').trim() || 'Prospective Client';
+      const business = (container.querySelector('#client-business')?.value || '').trim() || 'N/A';
+      const service = (serviceInput?.value || '').trim() || 'Creative Services';
+      const timeline = (container.querySelector('#client-timeline')?.value || '').trim() || 'Flexible';
+      const budget = (container.querySelector('#client-budget')?.value || '').trim() || 'Not specified';
+      const desc = (descInput?.value || '').trim() || 'Interested in discussing a custom project quote.';
 
       trackEvent('whatsapp_click', { service, budget, timeline });
 
-      // Exact prompt specified format:
+      // Structured inquiry WhatsApp format
       const msg = `Hello Lizzdo Media,\n\nI would like to discuss a project.\n\nName: ${name}\nBusiness: ${business}\nService: ${service}\nTimeline: ${timeline}\nEstimated Budget: ${budget}\n\nProject Details:\n${desc}\n\nPlease let me know the next steps.`;
 
       const numOnly = (site.whatsappNumber || '+1234567890').replace(/[^0-9]/g, '');
@@ -2065,9 +2120,10 @@ function renderContactPage(container, queryParams) {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      clearErrors();
 
       // Check Honeypot spam trap
-      const gotcha = (document.getElementById('client-gotcha')?.value || '').trim();
+      const gotcha = (container.querySelector('#client-gotcha')?.value || '').trim();
       if (gotcha) {
         // Silently swallow bot submission
         form.reset();
@@ -2075,44 +2131,57 @@ function renderContactPage(container, queryParams) {
         return;
       }
 
-      const nameInput = document.getElementById('client-name');
-      const emailInput = document.getElementById('client-email');
-      const serviceInput = document.getElementById('client-service');
-      const descInput = document.getElementById('client-description');
-
       const name = (nameInput?.value || '').trim();
       const email = (emailInput?.value || '').trim();
       const service = (serviceInput?.value || '').trim();
       const desc = (descInput?.value || '').trim();
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let hasError = false;
 
       if (!name) {
-        nameInput?.focus();
-        return;
+        nameInput?.classList.add('invalid');
+        const err = container.querySelector('#err-client-name');
+        if (err) err.classList.add('visible');
+        hasError = true;
       }
       if (!email || !emailRegex.test(email)) {
-        emailInput?.focus();
-        return;
+        emailInput?.classList.add('invalid');
+        const err = container.querySelector('#err-client-email');
+        if (err) err.classList.add('visible');
+        hasError = true;
       }
       if (!service) {
-        serviceInput?.focus();
-        return;
+        serviceInput?.classList.add('invalid');
+        const err = container.querySelector('#err-client-service');
+        if (err) err.classList.add('visible');
+        hasError = true;
       }
       if (!desc) {
-        descInput?.focus();
+        descInput?.classList.add('invalid');
+        const err = container.querySelector('#err-client-description');
+        if (err) err.classList.add('visible');
+        hasError = true;
+      }
+
+      if (hasError) {
+        if (errorBanner) errorBanner.classList.add('visible');
+        const firstInvalid = container.querySelector('.invalid');
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
 
       trackEvent('contact_form_submission', {
         service,
-        timeline: document.getElementById('client-timeline')?.value || '',
-        budget: document.getElementById('client-budget')?.value || ''
+        timeline: container.querySelector('#client-timeline')?.value || '',
+        budget: container.querySelector('#client-budget')?.value || ''
       });
 
       if (successBanner) {
         successBanner.classList.add('visible');
         form.reset();
+        // Scroll smoothly to success banner
+        successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     });
   }

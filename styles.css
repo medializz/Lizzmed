@@ -1696,6 +1696,48 @@ body.menu-open {
   animation: reveal 0.4s ease forwards;
 }
 
+.form-error-banner {
+  background-color: rgba(55, 25, 25, 0.88);
+  border: 1px solid rgba(255, 85, 85, 0.35);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 16px;
+  color: #ffd0d0;
+  font-size: 13.5px;
+  text-align: center;
+  display: none;
+  line-height: 1.55;
+}
+
+.form-error-banner.visible {
+  display: block;
+  animation: reveal 0.4s ease forwards;
+}
+
+.form-error-banner a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.form-field-error {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 2px;
+  display: none;
+}
+
+.form-field-error.visible {
+  display: block;
+}
+
+.form-input.invalid,
+.form-select.invalid,
+.form-textarea.invalid {
+  border-color: rgba(255, 85, 85, 0.7);
+  box-shadow: 0 0 0 2px rgba(255, 85, 85, 0.15);
+}
+
 /* ==================================================
    EXPANDED COMPREHENSIVE FOOTER
    ================================================== */
