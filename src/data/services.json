@@ -159,7 +159,7 @@
       { "title": "Cross-Platform Reach", "desc": "Simultaneous print and digital versions ensure seamless distribution across physical and social channels." }
     ],
     "process": [
-      { "step": "01", "title": "Event / Offer Brief", "desc": "Gathering event dates, highlights, pricing, and promotional copy." },
+      { "step": "01", "title": "Event / Offer Brief", "desc": "Gathering event dates, highlights, offer terms, and promotional copy." },
       { "step": "02", "title": "Visual Layout", "desc": "Designing high-contrast, attention-grabbing compositions." },
       { "step": "03", "title": "Review", "desc": "Reviewing details, contact info, and QR codes." },
       { "step": "04", "title": "Export", "desc": "Delivering full print-bleed and web-ready versions." }
