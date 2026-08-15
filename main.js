@@ -145,9 +145,44 @@ function updateNavState(section) {
 }
 
 /**
+ * Synchronize global brand and header elements (logo, CTA, favicon) with CMS settings
+ */
+function syncGlobalBrandElements() {
+  const site = getSiteConfig();
+  
+  // Header Logo
+  const headerLogoImg = document.querySelector('#header-logo img');
+  if (headerLogoImg && site.logo) {
+    headerLogoImg.src = site.logo;
+    headerLogoImg.alt = site.name || 'Lizzdo Media';
+  }
+  
+  // Header CTA buttons
+  const headerSignIn = document.getElementById('header-signin');
+  if (headerSignIn) {
+    if (site.primaryCtaText) headerSignIn.textContent = site.primaryCtaText;
+    if (site.primaryCtaUrl) headerSignIn.setAttribute('href', site.primaryCtaUrl);
+  }
+  const mobileSignIn = document.querySelector('.mobile-sign-in-btn');
+  if (mobileSignIn) {
+    if (site.primaryCtaText) mobileSignIn.textContent = site.primaryCtaText;
+    if (site.primaryCtaUrl) mobileSignIn.setAttribute('href', site.primaryCtaUrl);
+  }
+
+  // Favicon dynamic sync
+  if (site.favicon) {
+    const iconEl = document.querySelector('link[rel="icon"]');
+    if (iconEl) iconEl.setAttribute('href', site.favicon);
+    const appleIconEl = document.querySelector('link[rel="apple-touch-icon"]');
+    if (appleIconEl) appleIconEl.setAttribute('href', site.favicon);
+  }
+}
+
+/**
  * Render the requested page view
  */
 function renderPage(section, param, queryParams) {
+  syncGlobalBrandElements();
   const root = document.getElementById('view-mount');
   if (!root) return;
 

@@ -12,36 +12,55 @@ logo_url: "/assets/logo.webp"
 
 collections:
   # ==========================================
-  # SITE SETTINGS
+  # 1. SITE & BRAND SETTINGS (Central Global Hub)
   # ==========================================
   - name: "settings"
-    label: "Site Settings"
+    label: "Site & Brand Settings"
     delete: false
     editor:
       preview: false
     files:
       - name: "general"
-        label: "General, Contact & Social Settings"
+        label: "Global Brand, Contact & Social Settings"
         file: "src/data/settings.json"
         fields:
-          - { label: "Company Name", name: "companyName", widget: "string" }
-          - { label: "Division Tagline", name: "division", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "string" }
-          - { label: "Company Description", name: "description", widget: "text" }
-          - { label: "Logo Image", name: "logo", widget: "image", required: false }
-          - { label: "Favicon", name: "favicon", widget: "image", required: false }
-          - { label: "Contact Email", name: "contactEmail", widget: "string" }
-          - { label: "WhatsApp Number", name: "whatsappNumber", widget: "string", hint: "Format with country code, e.g. +1234567890" }
-          - { label: "Instagram URL", name: "instagramUrl", widget: "string", required: false }
-          - { label: "Facebook URL", name: "facebookUrl", widget: "string", required: false }
-          - { label: "LinkedIn URL", name: "linkedinUrl", widget: "string", required: false }
-          - { label: "Copyright Text", name: "copyrightText", widget: "string" }
-          - { label: "Parent Company Tag", name: "footerTagline", widget: "string" }
-          - { label: "Default SEO Title", name: "defaultSeoTitle", widget: "string", required: false }
-          - { label: "Default SEO Description", name: "defaultSeoDescription", widget: "text", required: false }
+          # Brand Settings
+          - { label: "Brand Name", name: "companyName", widget: "string", default: "Lizzdo Media", hint: "Main brand name displayed across the website" }
+          - { label: "Brand Tagline", name: "tagline", widget: "string", default: "Branding, Content, Marketing & Websites" }
+          - { label: "Division Tagline", name: "division", widget: "string", default: "Creative & Digital Services Division of Lizzdo" }
+          - { label: "Company Description", name: "description", widget: "text", hint: "Overview of Lizzdo Media used in footer and search metadata" }
+          - { label: "Primary Logo", name: "logo", widget: "image", default: "/assets/logo.webp", hint: "Central logo used in header, footer, and schema" }
+          - { label: "Alternative Logo", name: "logoAlt", widget: "image", required: false, hint: "Optional secondary logo variant" }
+          - { label: "Favicon", name: "favicon", widget: "image", default: "/assets/logo.webp", hint: "Browser tab icon (WebP, PNG, or ICO format)" }
+          - { label: "Default Social Sharing Image", name: "defaultSocialImage", widget: "image", default: "/assets/logo.webp", hint: "Fallback image preview for OpenGraph & Twitter cards" }
+          
+          # Contact & WhatsApp Settings
+          - { label: "Business Contact Email", name: "contactEmail", widget: "string", default: "hello@lizzdomedia.com" }
+          - { label: "WhatsApp Business Number", name: "whatsappNumber", widget: "string", default: "+1234567890", hint: "International format with country code, e.g. +1234567890. All WhatsApp CTA links auto-generate from this number." }
+          - { label: "WhatsApp CTA Label", name: "whatsappCtaText", widget: "string", default: "Chat on WhatsApp", required: false }
+          
+          # Social Media Channels
+          - { label: "Instagram Profile URL", name: "instagramUrl", widget: "string", required: false }
+          - { label: "Facebook Page URL", name: "facebookUrl", widget: "string", required: false }
+          - { label: "LinkedIn Company URL", name: "linkedinUrl", widget: "string", required: false }
+          
+          # Website & Parent Company URLs
+          - { label: "Website URL", name: "siteUrl", widget: "string", default: "https://media.lizzdo.com" }
+          - { label: "Parent Company Name", name: "parentCompany", widget: "string", default: "Lizzdo" }
+          - { label: "Parent Company Website", name: "parentCompanyUrl", widget: "string", default: "https://lizzdo.com" }
+          
+          # Global CTA & Footer
+          - { label: "Primary CTA Button Text", name: "primaryCtaText", widget: "string", default: "Start a Project" }
+          - { label: "Primary CTA Target Link", name: "primaryCtaUrl", widget: "string", default: "#contact" }
+          - { label: "Copyright Notice", name: "copyrightText", widget: "string", default: "© 2026 Lizzdo Media. All rights reserved." }
+          - { label: "Parent Company Footer Tag", name: "footerTagline", widget: "string", default: "A Lizzdo company" }
+          
+          # Default SEO
+          - { label: "Default SEO Title", name: "defaultSeoTitle", widget: "string", default: "Lizzdo Media — Creative & Digital Services", hint: "Default page title for search engines" }
+          - { label: "Default SEO Description", name: "defaultSeoDescription", widget: "text", default: "Branding, visual content, digital marketing and simple modern websites designed for growing businesses.", hint: "Default summary shown in search results and social previews" }
 
   # ==========================================
-  # HOMEPAGE CONFIGURATION
+  # 2. HOMEPAGE CONFIGURATION
   # ==========================================
   - name: "homepage"
     label: "Homepage"
@@ -50,9 +69,10 @@ collections:
       preview: false
     files:
       - name: "home"
-        label: "Homepage Content & Sections"
+        label: "Homepage Sections & Content"
         file: "src/data/home.json"
         fields:
+          # Hero Section
           - label: "Hero Section"
             name: "hero"
             widget: "object"
@@ -60,12 +80,13 @@ collections:
               - { label: "Headline Line 1", name: "line1", widget: "string" }
               - { label: "Headline Line 2", name: "line2", widget: "string" }
               - { label: "Subhead Description", name: "subhead", widget: "text" }
-              - { label: "Primary CTA Label", name: "primaryCta", widget: "string" }
-              - { label: "Secondary CTA Label", name: "secondaryCta", widget: "string" }
-              - { label: "Trust Row Label", name: "trustLabel", widget: "string" }
-              - { label: "Badge Text", name: "badgeText", widget: "string", required: false }
+              - { label: "Primary CTA Text", name: "primaryCta", widget: "string", default: "Start a Project" }
+              - { label: "Secondary CTA Text", name: "secondaryCta", widget: "string", default: "View Our Work" }
+              - { label: "Trust Row Pill Text", name: "trustLabel", widget: "string", default: "Creative & Digital Services by Lizzdo" }
+              - { label: "Badge Text", name: "badgeText", widget: "string", required: false, default: "Lizzdo Media Studio" }
 
-          - label: "Stats Counter"
+          # Stats Counter
+          - label: "Stats Counter Numbers"
             name: "stats"
             widget: "list"
             fields:
@@ -75,152 +96,165 @@ collections:
               - { label: "Decimals", name: "decimals", widget: "number", default: 0 }
               - { label: "Label", name: "label", widget: "string" }
 
+          # Introduction Section
           - label: "Introduction Section"
             name: "intro"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Headline", name: "headline", widget: "string" }
               - { label: "Paragraph 1", name: "paragraph1", widget: "text" }
               - { label: "Paragraph 2", name: "paragraph2", widget: "text" }
 
+          # Services Section Header
           - label: "Services Section Header"
             name: "servicesSection"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
 
-          - label: "Expertise Section"
+          # Expertise Section
+          - label: "Expertise Showcase"
             name: "expertise"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Expertise Items"
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Expertise Disciplines"
                 name: "items"
                 widget: "list"
                 fields:
-                  - { label: "Code", name: "code", widget: "string" }
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Glyph", name: "glyph", widget: "string" }
+                  - { label: "Discipline Code", name: "code", widget: "string" }
+                  - { label: "Discipline Title", name: "title", widget: "string" }
+                  - { label: "Icon Glyph", name: "glyph", widget: "string" }
                   - { label: "Description", name: "desc", widget: "text" }
-                  - { label: "Link", name: "link", widget: "string" }
+                  - { label: "Service Link", name: "link", widget: "string" }
 
-          - label: "Selected Work Section"
+          # Selected Work Section
+          - label: "Featured Work Header"
             name: "selectedWork"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "CTA Button Text", name: "ctaText", widget: "string" }
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - { label: "CTA Button Text", name: "ctaText", widget: "string", default: "View All Portfolio Works" }
 
-          - label: "Branding Showcase"
+          # Branding Showcase
+          - label: "Branding Showcase Banner"
             name: "brandingShowcase"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - label: "Elements"
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Pillar Elements"
                 name: "elements"
                 widget: "list"
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "desc", widget: "string" }
+                  - { label: "Pillar Title", name: "title", widget: "string" }
+                  - { label: "Pillar Description", name: "desc", widget: "string" }
 
-          - label: "Social Media Showcase"
+          # Social Media Showcase
+          - label: "Social Media Showcase Banner"
             name: "socialShowcase"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - label: "Items"
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Content Deliverable Pillars"
                 name: "items"
                 widget: "list"
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Description", name: "desc", widget: "string" }
+                  - { label: "Pillar Title", name: "title", widget: "string" }
+                  - { label: "Pillar Description", name: "desc", widget: "string" }
 
-          - label: "Marketing Showcase"
+          # Marketing Showcase
+          - label: "Digital Marketing Showcase Banner"
             name: "marketingShowcase"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Key Points", name: "points", widget: "list" }
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - { label: "Marketing Highlights", name: "points", widget: "list" }
 
-          - label: "Website Development Showcase"
+          # Website Development Showcase
+          - label: "Web Development Showcase Banner"
             name: "webShowcase"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - label: "Tiers"
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Solution Tiers"
                 name: "tiers"
                 widget: "list"
                 fields:
-                  - { label: "Pages Title", name: "pages", widget: "string" }
-                  - { label: "Description", name: "desc", widget: "string" }
-              - { label: "Highlights", name: "highlights", widget: "list" }
+                  - { label: "Tier Title", name: "pages", widget: "string" }
+                  - { label: "Tier Description", name: "desc", widget: "string" }
+              - { label: "Technical Highlights", name: "highlights", widget: "list" }
 
-          - label: "Process Section"
+          # Process Section
+          - label: "Creative Process"
             name: "process"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Steps"
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "text" }
+              - label: "Process Steps"
                 name: "steps"
                 widget: "list"
                 fields:
-                  - { label: "Step Number", name: "step", widget: "string" }
-                  - { label: "Name", name: "name", widget: "string" }
-                  - { label: "Description", name: "desc", widget: "text" }
+                  - { label: "Step Number (e.g. 01)", name: "step", widget: "string" }
+                  - { label: "Step Name", name: "name", widget: "string" }
+                  - { label: "Step Description", name: "desc", widget: "text" }
 
-          - label: "About Preview"
+          # About Preview
+          - label: "About Section Preview"
             name: "aboutPreview"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "CTA Button Text", name: "ctaText", widget: "string" }
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Preview Description", name: "description", widget: "text" }
+              - { label: "CTA Button Text", name: "ctaText", widget: "string", default: "More About Lizzdo Media" }
 
-          - label: "Blog Preview"
+          # Blog Preview
+          - label: "Blog / Insights Preview"
             name: "blogPreview"
             widget: "object"
             fields:
-              - { label: "Badge", name: "badge", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "CTA Button Text", name: "ctaText", widget: "string" }
+              - { label: "Badge Label", name: "badge", widget: "string" }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Preview Description", name: "description", widget: "text" }
+              - { label: "CTA Button Text", name: "ctaText", widget: "string", default: "View All Articles" }
 
-          - label: "Final Call to Action"
+          # Final Call to Action
+          - label: "Final Call to Action Banner"
             name: "finalCta"
             widget: "object"
             fields:
               - { label: "Headline", name: "headline", widget: "string" }
               - { label: "Subhead", name: "subhead", widget: "text" }
-              - { label: "Primary Button Label", name: "primaryBtn", widget: "string" }
-              - { label: "Secondary Button Label", name: "secondaryBtn", widget: "string" }
+              - { label: "Primary Button Label", name: "primaryBtn", widget: "string", default: "Start a Project" }
+              - { label: "Secondary Button Label", name: "secondaryBtn", widget: "string", default: "Chat on WhatsApp" }
 
-          - label: "Homepage SEO"
+          # Homepage SEO
+          - label: "Homepage SEO Metadata"
             name: "seo"
             widget: "object"
             fields:
-              - { label: "SEO Title", name: "title", widget: "string", required: false }
-              - { label: "SEO Description", name: "description", widget: "text", required: false }
+              - { label: "Page SEO Title", name: "title", widget: "string", required: false }
+              - { label: "Page SEO Description", name: "description", widget: "text", required: false, hint: "A short description used by search engines and social platforms" }
 
   # ==========================================
-  # SERVICES COLLECTION
+  # 3. SERVICES COLLECTION
   # ==========================================
   - name: "services"
     label: "Services"
@@ -229,21 +263,26 @@ collections:
       preview: false
     files:
       - name: "all_services"
-        label: "All Services List"
+        label: "Services List"
         file: "src/data/services.json"
         fields:
-          - label: "Services"
+          - label: "All Services"
             name: "services"
             widget: "list"
             fields:
-              - { label: "Display Order", name: "order", widget: "number", default: 1, hint: "Sorts services from 1 upward" }
+              # Basic Information
+              - { label: "Display Order", name: "order", widget: "number", default: 1, hint: "Numerical sort order from 1 upward" }
               - { label: "Number Tag (e.g. 01)", name: "number", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Slug", name: "slug", widget: "string", hint: "Used in URL /services/[slug]" }
+              - { label: "Service Title", name: "title", widget: "string" }
+              - { label: "URL Slug", name: "slug", widget: "string", hint: "Used in website URL, e.g. brand-identity" }
               - { label: "Short Title", name: "shortTitle", widget: "string", required: false }
               - { label: "Category", name: "category", widget: "select", options: ["Branding", "Logo Design", "Graphic Design", "Flyer Design", "Social Media", "Marketing", "Advertising", "AI Visuals", "Websites"] }
-              - { label: "Published", name: "published", widget: "boolean", default: true, hint: "If false, hidden from public website" }
+              
+              # Publishing Status
+              - { label: "Published (Visible on site and contact form)", name: "published", widget: "boolean", default: true }
               - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
+              
+              # Service Content & Deliverables
               - { label: "Short Summary", name: "summary", widget: "text" }
               - { label: "Full Description", name: "description", widget: "text" }
               - label: "What We Provide"
@@ -261,9 +300,13 @@ collections:
                 fields:
                   - { label: "Point Title", name: "title", widget: "string" }
                   - { label: "Point Description", name: "desc", widget: "text" }
+              
+              # Media & Interaction
               - { label: "CTA Button Text", name: "ctaText", widget: "string", default: "Discuss This Service" }
-              - { label: "Featured Image", name: "featuredImage", widget: "image", default: "/assets/logo.webp", required: false }
-              - { label: "Icon Glyph", name: "iconGlyph", widget: "string", default: "◆" }
+              - { label: "Hero / Featured Image", name: "featuredImage", widget: "image", default: "/assets/logo.webp", required: false }
+              - { label: "Icon Glyph Symbol", name: "iconGlyph", widget: "string", default: "◆" }
+              
+              # Process Steps
               - label: "Process Steps"
                 name: "process"
                 widget: "list"
@@ -272,6 +315,8 @@ collections:
                   - { label: "Step Number", name: "step", widget: "string" }
                   - { label: "Step Title", name: "title", widget: "string" }
                   - { label: "Step Description", name: "desc", widget: "text" }
+                  
+              # FAQs
               - label: "Service FAQs"
                 name: "faqs"
                 widget: "list"
@@ -279,11 +324,13 @@ collections:
                 fields:
                   - { label: "Question", name: "question", widget: "string" }
                   - { label: "Answer", name: "answer", widget: "text" }
-              - { label: "SEO Title", name: "seoTitle", widget: "string", required: false }
-              - { label: "SEO Description", name: "seoDescription", widget: "text", required: false }
+                  
+              # SEO
+              - { label: "Page SEO Title", name: "seoTitle", widget: "string", required: false }
+              - { label: "Page SEO Description", name: "seoDescription", widget: "text", required: false, hint: "A short description used by search engines and social platforms" }
 
   # ==========================================
-  # WORK / PORTFOLIO COLLECTION
+  # 4. WORK / PORTFOLIO COLLECTION
   # ==========================================
   - name: "portfolio"
     label: "Work / Portfolio"
@@ -299,40 +346,49 @@ collections:
             name: "projects"
             widget: "list"
             fields:
+              # Project Details
               - { label: "Display Order", name: "order", widget: "number", default: 1 }
               - { label: "Project Title", name: "title", widget: "string" }
-              - { label: "Slug", name: "slug", widget: "string", hint: "Used in URL /work/[slug]" }
+              - { label: "URL Slug", name: "slug", widget: "string", hint: "Used in URL, e.g. aura-brand-identity" }
               - { label: "Client Name", name: "client", widget: "string" }
               - { label: "Year", name: "year", widget: "string", default: "2026" }
               - { label: "Category", name: "category", widget: "select", options: ["Branding", "Logo Design", "Graphic Design", "Flyer Design", "Social Media", "Marketing", "Advertising", "AI Visuals", "Websites"] }
               - { label: "Industry", name: "industry", widget: "string", required: false }
-              - { label: "Published", name: "published", widget: "boolean", default: true, hint: "If false, project is hidden" }
-              - { label: "Featured Project", name: "featured", widget: "boolean", default: false, hint: "Controls Selected Work on homepage and Work page" }
+              
+              # Publishing Controls
+              - { label: "Published (Visible publicly)", name: "published", widget: "boolean", default: true }
+              - { label: "Featured Project (Shown on homepage)", name: "featured", widget: "boolean", default: false }
+              
+              # Overview & Creative Direction
               - { label: "Short Summary", name: "summary", widget: "text" }
-              - { label: "Full Description / Overview", name: "description", widget: "text" }
+              - { label: "Full Overview", name: "description", widget: "text" }
               - { label: "Project Objective", name: "objective", widget: "text", required: false }
               - { label: "Creative Direction", name: "creativeDirection", widget: "text", required: false }
-              - { label: "Featured Image", name: "featuredImage", widget: "image", default: "/assets/logo.webp", required: false }
               - { label: "Services Provided", name: "services", widget: "list" }
-              - label: "Gallery & Deliverables"
+              
+              # Media & Gallery
+              - { label: "Featured Image", name: "featuredImage", widget: "image", default: "/assets/logo.webp", required: false }
+              - label: "Gallery Deliverables"
                 name: "gallery"
                 widget: "list"
                 required: false
                 fields:
-                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Deliverable Title", name: "title", widget: "string" }
                   - { label: "Description", name: "desc", widget: "text" }
-                  - { label: "Image URL", name: "image", widget: "image", required: false }
-              - { label: "Optional Video URL", name: "videoUrl", widget: "string", required: false, hint: "MP4 link or video embed" }
-              - { label: "Website URL", name: "websiteUrl", widget: "string", required: false }
-              - { label: "Instagram URL", name: "instagramUrl", widget: "string", required: false }
-              - { label: "SEO Title", name: "seoTitle", widget: "string", required: false }
-              - { label: "SEO Description", name: "seoDescription", widget: "text", required: false }
+                  - { label: "Image File", name: "image", widget: "image", required: false }
+              - { label: "Optional Video URL", name: "videoUrl", widget: "string", required: false, hint: "Direct MP4 link or hosted video" }
+              - { label: "Live Project Website URL", name: "websiteUrl", widget: "string", required: false }
+              - { label: "Project Instagram Post URL", name: "instagramUrl", widget: "string", required: false }
+              
+              # SEO
+              - { label: "Page SEO Title", name: "seoTitle", widget: "string", required: false }
+              - { label: "Page SEO Description", name: "seoDescription", widget: "text", required: false, hint: "A short description used by search engines and social platforms" }
 
   # ==========================================
-  # BLOG COLLECTION
+  # 5. BLOG / INSIGHTS COLLECTION
   # ==========================================
   - name: "blog"
-    label: "Blog"
+    label: "Blog / Insights"
     delete: false
     editor:
       preview: false
@@ -345,30 +401,39 @@ collections:
             name: "articles"
             widget: "list"
             fields:
+              # Article Information
               - { label: "Display Order", name: "order", widget: "number", default: 1 }
               - { label: "Article Title", name: "title", widget: "string" }
-              - { label: "Slug", name: "slug", widget: "string", hint: "Used in URL /blog/[slug]" }
+              - { label: "URL Slug", name: "slug", widget: "string", hint: "Used in URL, e.g. anatomy-of-modern-brand" }
               - { label: "Author", name: "author", widget: "string", default: "Lizzdo Media" }
               - { label: "Publish Date", name: "date", widget: "datetime" }
-              - { label: "Formatted Date", name: "formattedDate", widget: "string", default: "August 10, 2026" }
-              - { label: "Read Time", name: "readTime", widget: "string", default: "4 min read" }
+              - { label: "Formatted Date String", name: "formattedDate", widget: "string", default: "August 10, 2026" }
+              - { label: "Estimated Read Time", name: "readTime", widget: "string", default: "4 min read" }
               - { label: "Category", name: "category", widget: "select", options: ["Branding", "Marketing", "Social Media", "Design", "Web Development", "Business"] }
-              - { label: "Related Service", name: "relatedService", widget: "string", required: false, hint: "Connects article CTA to a service, e.g. Brand Identity" }
-              - { label: "Published", name: "published", widget: "boolean", default: true, hint: "Drafts will not appear publicly when false" }
-              - { label: "Featured", name: "featured", widget: "boolean", default: false }
-              - { label: "Excerpt", name: "excerpt", widget: "text" }
-              - { label: "Article Content / Body (Markdown & Code Blocks Supported)", name: "body", widget: "markdown" }
+              - { label: "Connected Related Service", name: "relatedService", widget: "string", required: false, hint: "Connects article CTA to a service, e.g. Brand Identity" }
+              
+              # Publishing Status
+              - { label: "Published (Visible on site)", name: "published", widget: "boolean", default: true }
+              - { label: "Featured Article", name: "featured", widget: "boolean", default: false }
+              
+              # Content & Markdown Body
+              - { label: "Excerpt / Short Intro", name: "excerpt", widget: "text" }
+              - { label: "Article Body (Markdown, Headings, Lists & Code Blocks Supported)", name: "body", widget: "markdown" }
               - { label: "Tags", name: "tags", widget: "list", required: false }
-              - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
-              - { label: "Social Sharing Image", name: "socialImage", widget: "image", required: false }
-              - { label: "SEO Title", name: "seoTitle", widget: "string", required: false }
-              - { label: "SEO Description", name: "seoDescription", widget: "text", required: false }
+              
+              # Media
+              - { label: "Featured Cover Image", name: "featuredImage", widget: "image", required: false }
+              - { label: "Social Sharing Image", name: "socialImage", widget: "image", required: false, hint: "Used for social media card previews" }
+              
+              # SEO
+              - { label: "Page SEO Title", name: "seoTitle", widget: "string", required: false }
+              - { label: "Page SEO Description", name: "seoDescription", widget: "text", required: false, hint: "A short description used by search engines and social platforms" }
 
   # ==========================================
-  # ABOUT PAGE CONFIGURATION
+  # 6. ABOUT PAGE CONFIGURATION
   # ==========================================
   - name: "about"
-    label: "About"
+    label: "About Page"
     delete: false
     editor:
       preview: false
@@ -377,25 +442,25 @@ collections:
         label: "About Page Content"
         file: "src/data/about.json"
         fields:
-          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Page Heading", name: "heading", widget: "string" }
           - { label: "Subheadline", name: "subheadline", widget: "string" }
-          - { label: "Introduction", name: "introduction", widget: "text" }
-          - { label: "Paragraphs", name: "paragraphs", widget: "list" }
+          - { label: "Introduction Narrative", name: "introduction", widget: "text" }
+          - { label: "Story Paragraphs", name: "paragraphs", widget: "list" }
           - { label: "Mission Statement", name: "mission", widget: "text" }
-          - { label: "Approach", name: "approach", widget: "text" }
+          - { label: "Creative Approach", name: "approach", widget: "text" }
           - label: "Philosophy Pillars"
             name: "pillars"
             widget: "list"
             fields:
-              - { label: "Pillar Number", name: "number", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "Pillar Number (e.g. 01)", name: "number", widget: "string" }
+              - { label: "Pillar Title", name: "title", widget: "string" }
+              - { label: "Pillar Description", name: "desc", widget: "text" }
           - { label: "CTA Button Text", name: "ctaText", widget: "string", default: "Start a Conversation" }
-          - { label: "SEO Title", name: "seoTitle", widget: "string", required: false }
-          - { label: "SEO Description", name: "seoDescription", widget: "text", required: false }
+          - { label: "Page SEO Title", name: "seoTitle", widget: "string", required: false }
+          - { label: "Page SEO Description", name: "seoDescription", widget: "text", required: false, hint: "A short description used by search engines and social platforms" }
 
   # ==========================================
-  # TESTIMONIALS COLLECTION
+  # 7. TESTIMONIALS COLLECTION
   # ==========================================
   - name: "testimonials"
     label: "Testimonials"
@@ -407,20 +472,20 @@ collections:
         label: "Testimonials List"
         file: "src/data/testimonials.json"
         fields:
-          - label: "Testimonials (Hidden if empty or unpublished)"
+          - label: "Client Testimonials (Hidden on website if list is empty or unpublished)"
             name: "testimonials"
             widget: "list"
             fields:
               - { label: "Display Order", name: "order", widget: "number", default: 1 }
               - { label: "Client Name", name: "clientName", widget: "string" }
-              - { label: "Company", name: "company", widget: "string" }
-              - { label: "Role", name: "role", widget: "string" }
-              - { label: "Testimonial Content", name: "testimonial", widget: "text" }
-              - { label: "Client Image", name: "image", widget: "image", required: false }
-              - { label: "Published", name: "published", widget: "boolean", default: false }
+              - { label: "Company Name", name: "company", widget: "string" }
+              - { label: "Role / Position", name: "role", widget: "string" }
+              - { label: "Testimonial Quote", name: "testimonial", widget: "text" }
+              - { label: "Client Avatar / Photo", name: "image", widget: "image", required: false }
+              - { label: "Published (Visible on site)", name: "published", widget: "boolean", default: false }
 
   # ==========================================
-  # FAQ COLLECTION
+  # 8. FAQ COLLECTION
   # ==========================================
   - name: "faq"
     label: "FAQ"
@@ -440,4 +505,5 @@ collections:
               - { label: "Question", name: "question", widget: "string" }
               - { label: "Answer", name: "answer", widget: "text" }
               - { label: "Category", name: "category", widget: "string", default: "General" }
-              - { label: "Published", name: "published", widget: "boolean", default: true }
+              - { label: "Related Service", name: "relatedService", widget: "string", required: false }
+              - { label: "Published (Visible on site)", name: "published", widget: "boolean", default: true }

@@ -28,20 +28,29 @@ function getCachedData(key, fallback) {
 
 export function getSiteConfig() {
   const data = getCachedData("settings", settingsData);
+  const whatsappDigits = (data.whatsappNumber || "+1234567890").replace(/[^0-9]/g, "");
   return {
     name: data.companyName || "Lizzdo Media",
     division: data.division || "Creative & Digital Services Division of Lizzdo",
     tagline: data.tagline || "Branding, Content, Marketing & Websites",
-    description: data.description || "Creative and digital services division of Lizzdo.",
+    description: data.description || "Creative and digital services division of Lizzdo. Empowering modern businesses with enduring brand identities, high-impact marketing visuals, and streamlined websites.",
     logo: data.logo || "/assets/logo.webp",
+    logoAlt: data.logoAlt || data.logo || "/assets/logo.webp",
     favicon: data.favicon || "/assets/logo.webp",
-    whatsappNumber: data.whatsappNumber || "+1234567890",
+    defaultSocialImage: data.defaultSocialImage || data.logo || "/assets/logo.webp",
     contactEmail: data.contactEmail || "hello@lizzdomedia.com",
+    whatsappNumber: data.whatsappNumber || "+1234567890",
+    whatsappCtaText: data.whatsappCtaText || "Chat on WhatsApp",
+    primaryCtaText: data.primaryCtaText || "Start a Project",
+    primaryCtaUrl: data.primaryCtaUrl || "#contact",
+    siteUrl: data.siteUrl || "https://media.lizzdo.com",
+    parentCompany: data.parentCompany || "Lizzdo",
+    parentCompanyUrl: data.parentCompanyUrl || "https://lizzdo.com",
     socials: {
       instagram: data.instagramUrl || "",
       facebook: data.facebookUrl || "",
       linkedin: data.linkedinUrl || "",
-      whatsapp: data.whatsappNumber ? `https://wa.me/${data.whatsappNumber.replace(/[^0-9]/g, "")}` : ""
+      whatsapp: whatsappDigits ? `https://wa.me/${whatsappDigits}` : ""
     },
     legal: {
       privacy: "Privacy Policy",
@@ -50,11 +59,14 @@ export function getSiteConfig() {
     footer: {
       description: data.description || "Creative and digital services division of Lizzdo. Empowering modern businesses with enduring brand identities, high-impact marketing visuals, and streamlined websites.",
       tagline: data.footerTagline || "A Lizzdo company",
-      copyright: data.copyrightText || "© 2026 Lizzdo Media. All rights reserved."
+      copyright: data.copyrightText || "© 2026 Lizzdo Media. All rights reserved.",
+      parentCompany: data.parentCompany || "Lizzdo",
+      parentCompanyUrl: data.parentCompanyUrl || "https://lizzdo.com"
     },
     seo: {
       defaultTitle: data.defaultSeoTitle || "Lizzdo Media — Creative & Digital Services",
-      defaultDescription: data.defaultSeoDescription || "Branding, visual content, digital marketing and simple modern websites designed for growing businesses."
+      defaultDescription: data.defaultSeoDescription || "Branding, visual content, digital marketing and simple modern websites designed for growing businesses.",
+      defaultSocialImage: data.defaultSocialImage || data.logo || "/assets/logo.webp"
     }
   };
 }
