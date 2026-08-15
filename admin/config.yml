@@ -6,7 +6,8 @@ local_backend: true
 media_folder: "public/assets"
 public_folder: "/assets"
 
-display_url: "/"
+display_url: "https://media.lizzdo.com"
+site_url: "https://media.lizzdo.com"
 logo_url: "/assets/logo.webp"
 
 collections:

@@ -219,7 +219,7 @@ function updateSEO(title, description, image, path) {
   const fullTitle = title || site.seo?.defaultTitle || `${site.name} — ${site.tagline}`;
   const fullDesc = description || site.seo?.defaultDescription || site.description;
   const fullImg = image || site.logo || '/assets/logo.webp';
-  const fullUrl = `https://lizzdomedia.com/${path ? (path.startsWith('#') ? path : `#${path}`) : ''}`;
+  const fullUrl = `https://media.lizzdo.com/${path ? (path.startsWith('#') ? path : `#${path}`) : ''}`;
 
   document.title = fullTitle;
 
