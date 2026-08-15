@@ -211,10 +211,24 @@ function escapeHtml(text) {
 }
 
 /**
- * Utility: Dynamic SEO & Social Meta Updater
- * (Requirement 34, 35)
+ * Utility: Analytics Event Dispatcher (Prepared for production tracking without hardcoded IDs)
  */
-function updateSEO(title, description, image, path) {
+export function trackEvent(eventName, params = {}) {
+  if (typeof window === 'undefined') return;
+  // If Google Analytics / GTag is configured by client
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params);
+  }
+  // If Google Tag Manager dataLayer exists
+  if (Array.isArray(window.dataLayer)) {
+    window.dataLayer.push({ event: eventName, ...params });
+  }
+}
+
+/**
+ * Utility: Dynamic SEO & Social Meta Updater with Structured Data (JSON-LD)
+ */
+function updateSEO(title, description, image, path, schemaData = null) {
   const site = getSiteConfig();
   const fullTitle = title || site.seo?.defaultTitle || `${site.name} — ${site.tagline}`;
   const fullDesc = description || site.seo?.defaultDescription || site.description;
@@ -250,6 +264,46 @@ function updateSEO(title, description, image, path) {
   // Canonical
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.setAttribute('href', fullUrl);
+
+  // Structured Data (JSON-LD)
+  let script = document.getElementById('structured-data');
+  if (!script) {
+    script = document.createElement('script');
+    script.id = 'structured-data';
+    script.type = 'application/ld+json';
+    document.head.appendChild(script);
+  }
+
+  const defaultSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://media.lizzdo.com/#organization",
+        "name": site.name || "Lizzdo Media",
+        "url": "https://media.lizzdo.com",
+        "logo": "https://media.lizzdo.com/assets/logo.webp",
+        "sameAs": [
+          site.socials?.instagram,
+          site.socials?.facebook,
+          site.socials?.linkedin
+        ].filter(Boolean)
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://media.lizzdo.com/#website",
+        "url": "https://media.lizzdo.com",
+        "name": site.name || "Lizzdo Media",
+        "description": site.description,
+        "publisher": {
+          "@id": "https://media.lizzdo.com/#organization"
+        }
+      }
+    ]
+  };
+
+  const finalSchema = schemaData || defaultSchema;
+  script.textContent = JSON.stringify(finalSchema);
 }
 
 /**
@@ -1021,11 +1075,29 @@ function renderServiceDetail(container, slug) {
     return catMatch || serviceMatch;
   }).slice(0, 3);
   
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description || service.summary,
+        "provider": {
+          "@type": "Organization",
+          "name": site.name,
+          "url": "https://media.lizzdo.com"
+        },
+        "url": `https://media.lizzdo.com/#services/${service.slug}`
+      }
+    ]
+  };
+
   updateSEO(
     service.seoTitle || `${service.title} — ${site.name}`,
     service.seoDescription || service.description || service.summary,
     service.featuredImage || site.logo,
-    `services/${service.slug}`
+    `services/${service.slug}`,
+    serviceSchema
   );
 
   container.innerHTML = `
@@ -1357,11 +1429,30 @@ function renderWorkDetail(container, slug) {
     .filter((p) => p.slug !== project.slug && (p.category === project.category || (p.services && project.services && p.services.some(s => project.services.includes(s)))))
     .slice(0, 3);
   
+  const workSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "name": project.title,
+        "description": project.description || project.summary,
+        "creator": {
+          "@type": "Organization",
+          "name": site.name,
+          "url": "https://media.lizzdo.com"
+        },
+        "image": project.featuredImage ? `https://media.lizzdo.com${project.featuredImage}` : undefined,
+        "url": `https://media.lizzdo.com/#work/${project.slug}`
+      }
+    ]
+  };
+
   updateSEO(
     project.seoTitle || `${project.title} Case Study — ${site.name}`,
     project.seoDescription || project.description || project.summary,
     project.featuredImage || site.logo,
-    `work/${project.slug}`
+    `work/${project.slug}`,
+    workSchema
   );
 
   container.innerHTML = `
@@ -1660,11 +1751,41 @@ function renderBlogDetail(container, slug) {
     return;
   }
   
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": post.title,
+        "description": post.excerpt || post.summary || post.seoDescription,
+        "image": post.featuredImage ? `https://media.lizzdo.com${post.featuredImage}` : undefined,
+        "datePublished": post.date,
+        "author": {
+          "@type": "Person",
+          "name": post.author || site.name
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": site.name,
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://media.lizzdo.com/assets/logo.webp"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://media.lizzdo.com/#blog/${post.slug}`
+        }
+      }
+    ]
+  };
+
   updateSEO(
     post.seoTitle || `${post.title} — ${site.name}`,
     post.seoDescription || post.excerpt,
     post.featuredImage || site.logo,
-    `blog/${post.slug}`
+    `blog/${post.slug}`,
+    articleSchema
   );
 
   const articleBodyHtml = renderMarkdown(post.body || post.content);
@@ -1783,8 +1904,11 @@ function renderContactPage(container, queryParams) {
         </p>
 
         <div class="contact-card anim" style="--d: 0.28s">
-          <form class="contact-form" id="project-inquiry-form">
+          <form class="contact-form" id="project-inquiry-form" novalidate>
             
+            <!-- Honeypot Anti-Spam Field (Hidden from humans) -->
+            <input type="text" name="_gotcha" id="client-gotcha" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
             <div class="form-row-2">
               <div class="form-group">
                 <label class="form-label" for="client-name">Your Full Name <span class="required-star">*</span></label>
@@ -1892,18 +2016,65 @@ function renderContactPage(container, queryParams) {
       const budget = (document.getElementById('client-budget').value || '').trim() || 'Not specified';
       const desc = (document.getElementById('client-description').value || '').trim() || 'Interested in discussing a custom project quote.';
 
+      trackEvent('whatsapp_click', { service, budget, timeline });
+
       // Exact prompt specified format:
       const msg = `Hello Lizzdo Media,\n\nI would like to discuss a project.\n\nName: ${name}\nBusiness: ${business}\nService: ${service}\nTimeline: ${timeline}\nEstimated Budget: ${budget}\n\nProject Details:\n${desc}\n\nPlease let me know the next steps.`;
 
       const numOnly = (site.whatsappNumber || '+1234567890').replace(/[^0-9]/g, '');
       const whatsappUrl = `https://wa.me/${numOnly}?text=${encodeURIComponent(msg)}`;
-      window.open(whatsappUrl, '_blank');
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     });
   }
 
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Check Honeypot spam trap
+      const gotcha = (document.getElementById('client-gotcha')?.value || '').trim();
+      if (gotcha) {
+        // Silently swallow bot submission
+        form.reset();
+        if (successBanner) successBanner.classList.add('visible');
+        return;
+      }
+
+      const nameInput = document.getElementById('client-name');
+      const emailInput = document.getElementById('client-email');
+      const serviceInput = document.getElementById('client-service');
+      const descInput = document.getElementById('client-description');
+
+      const name = (nameInput?.value || '').trim();
+      const email = (emailInput?.value || '').trim();
+      const service = (serviceInput?.value || '').trim();
+      const desc = (descInput?.value || '').trim();
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name) {
+        nameInput?.focus();
+        return;
+      }
+      if (!email || !emailRegex.test(email)) {
+        emailInput?.focus();
+        return;
+      }
+      if (!service) {
+        serviceInput?.focus();
+        return;
+      }
+      if (!desc) {
+        descInput?.focus();
+        return;
+      }
+
+      trackEvent('contact_form_submission', {
+        service,
+        timeline: document.getElementById('client-timeline')?.value || '',
+        budget: document.getElementById('client-budget')?.value || ''
+      });
+
       if (successBanner) {
         successBanner.classList.add('visible');
         form.reset();
