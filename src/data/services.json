@@ -11,7 +11,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Brand Identity",
+    "whatWeProvide": [
+      { "title": "Comprehensive Brand Strategy", "desc": "Market positioning audit, target demographic analysis, and core brand personality definition." },
+      { "title": "Complete Design System", "desc": "Typography hierarchy rules, contrast-tested color palettes, grid systems, and icon styling." },
+      { "title": "Multi-Format Brand Assets", "desc": "Production-ready master vectors, dark/light variations, and digital-first assets." }
+    ],
     "deliverables": [
       "Full Visual Identity System & Guidelines",
       "Curated Typography Pairings & Hierarchy",
@@ -19,11 +24,21 @@
       "Brand Asset Kits & Multi-Format Exports",
       "Stationery & Collateral Templates"
     ],
+    "whyItMatters": [
+      { "title": "Instant Credibility", "desc": "A unified visual identity communicates professional authority and elevates perception from day one." },
+      { "title": "Long-Term Consistency", "desc": "Clear guidelines empower your team and partners to create on-brand materials without guesswork." },
+      { "title": "Market Differentiation", "desc": "Distinct visual positioning sets your business apart in saturated competitive landscapes." }
+    ],
     "process": [
       { "step": "01", "title": "Discovery & Strategy", "desc": "Understanding your business vision, target demographic, and market landscape." },
       { "step": "02", "title": "Concept Directions", "desc": "Exploring distinct visual directions with moodboards and typography studies." },
       { "step": "03", "title": "Refinement & Systems", "desc": "Developing the full asset ecosystem and testing scalability." },
       { "step": "04", "title": "Brand Guidelines Delivery", "desc": "Packaging all master files with comprehensive usage documentation." }
+    ],
+    "faqs": [
+      { "question": "How long does a full brand identity project take?", "answer": "Most brand identity systems are completed within 2 to 4 weeks depending on scope, rounds of concept refinement, and collateral requirements." },
+      { "question": "What do I need to provide before starting?", "answer": "A brief overview of your business, target audience, aesthetic preferences, reference links if available, and any existing materials you wish to evolve." },
+      { "question": "Can you work with an existing logo or brand?", "answer": "Yes. We can modernize and extend existing marks into full, cohesive identity systems." }
     ],
     "iconGlyph": "◆",
     "seoTitle": "Brand Identity Design — Lizzdo Media",
@@ -41,7 +56,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Logo Design",
+    "whatWeProvide": [
+      { "title": "Bespoke Vector Concepts", "desc": "Original, handcrafted logo concepts developed specifically for your business identity." },
+      { "title": "Responsive Logo System", "desc": "Primary lockup, horizontal/vertical layouts, submarks, and favicon variations." },
+      { "title": "Full Production Suite", "desc": "Scalable SVG, EPS, PDF, and high-resolution PNG exports for print and digital." }
+    ],
     "deliverables": [
       "Primary Vector Logo & Secondary Lockups",
       "Submarks, Monograms & Favicon Sets",
@@ -49,11 +69,19 @@
       "High-Resolution Vector Formats (SVG, EPS, PDF, PNG)",
       "Clear Space & Sizing Specifications"
     ],
+    "whyItMatters": [
+      { "title": "First Impressions", "desc": "Your logo is often the initial touchpoint prospects recognize across web, social, and physical touchpoints." },
+      { "title": "Scale & Versatility", "desc": "Clean vector geometry ensures your mark stays crisp whether viewed on a 16px favicon or a massive banner." }
+    ],
     "process": [
       { "step": "01", "title": "Briefing & Concepting", "desc": "Gathering stylistic preferences and core brand values." },
       { "step": "02", "title": "Sketching & Vectorizing", "desc": "Translating concepts into clean, geometrical vector artwork." },
       { "step": "03", "title": "Critique & Polishing", "desc": "Fine-tuning optical weights, curves, and kerning." },
       { "step": "04", "title": "Final Package Export", "desc": "Delivering complete production-ready file bundles." }
+    ],
+    "faqs": [
+      { "question": "How many logo concepts do I receive?", "answer": "We present distinct initial concept directions based on your brief, followed by focused revisions on the chosen direction." },
+      { "question": "Do I own full commercial rights to the logo?", "answer": "Yes. Upon final delivery and completion, full commercial ownership of the approved logo design transfers to you." }
     ],
     "iconGlyph": "◈",
     "seoTitle": "Vector Logo Design — Lizzdo Media",
@@ -71,7 +99,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Graphic Design",
+    "whatWeProvide": [
+      { "title": "Digital & Print Collateral", "desc": "Marketing materials tailored for digital screens and commercial print production." },
+      { "title": "Brand-Aligned Visual Hierarchy", "desc": "Typographic structure and layout balance that emphasizes key calls-to-action." },
+      { "title": "Fast, Iterative Delivery", "desc": "Swift turnarounds for ongoing promotional campaigns and business collateral." }
+    ],
     "deliverables": [
       "Digital Marketing Graphics & Web Banners",
       "Print Collateral (Brochures, Menus, Signage)",
@@ -79,11 +112,18 @@
       "Product Graphics & Merchandising Design",
       "Custom Graphic Elements & Vectors"
     ],
+    "whyItMatters": [
+      { "title": "Visual Professionalism", "desc": "High-caliber graphics reinforce trust and elevate every promotional touchpoint." },
+      { "title": "Communication Clarity", "desc": "Thoughtful visual hierarchy makes complex information effortless for your audience to digest." }
+    ],
     "process": [
       { "step": "01", "title": "Requirements & Content", "desc": "Reviewing copy, dimensions, formats, and aesthetic requirements." },
       { "step": "02", "title": "Layout Composition", "desc": "Structuring visual hierarchy with balanced typography and negative space." },
       { "step": "03", "title": "Feedback & Revisions", "desc": "Iterating swiftly based on your feedback." },
       { "step": "04", "title": "Production Deliverables", "desc": "Exporting print-ready CMYK or web-optimized RGB files." }
+    ],
+    "faqs": [
+      { "question": "Can you design for both print and digital?", "answer": "Yes. We format files specifically for your intended destination, including 300 DPI CMYK with bleed for print, and optimized RGB for web." }
     ],
     "iconGlyph": "■",
     "seoTitle": "High-Impact Graphic Design — Lizzdo Media",
@@ -101,19 +141,31 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Flyer Design",
+    "whatWeProvide": [
+      { "title": "High-Impact Visual Compositions", "desc": "Dynamic layouts engineered to capture attention instantly in physical and digital feeds." },
+      { "title": "Multi-Ratio Exports", "desc": "Standard print formats (A4/A5/Letter) alongside vertical story and feed ratios." },
+      { "title": "Print Production Ready", "desc": "Pre-flighted CMYK files with proper trim and bleed margins." }
+    ],
     "deliverables": [
       "Commercial & Promotional Event Flyers",
       "Digital Distribution Formats (Stories / Feeds / PDFs)",
       "High-Resolution Print-Ready CMYK Files with Bleed",
       "Multiple Size Adaptations (A4, A5, US Letter, Square)",
-      "Editable Source Files upon request"
+      "Source Files & Vector Elements upon request"
+    ],
+    "whyItMatters": [
+      { "title": "Event & Offer Visibility", "desc": "A well-designed flyer converts passive browsers into active attendees and buyers." },
+      { "title": "Cross-Platform Reach", "desc": "Simultaneous print and digital versions ensure seamless distribution across physical and social channels." }
     ],
     "process": [
       { "step": "01", "title": "Event / Offer Brief", "desc": "Gathering event dates, highlights, pricing, and promotional copy." },
       { "step": "02", "title": "Visual Layout", "desc": "Designing high-contrast, attention-grabbing compositions." },
       { "step": "03", "title": "Review", "desc": "Reviewing details, contact info, and QR codes." },
       { "step": "04", "title": "Export", "desc": "Delivering full print-bleed and web-ready versions." }
+    ],
+    "faqs": [
+      { "question": "Can you include QR codes for direct ticketing or WhatsApp?", "answer": "Yes. We generate and embed high-resolution, scannable QR codes configured for your exact destination URL." }
     ],
     "iconGlyph": "▲",
     "seoTitle": "Promotional & Event Flyer Design — Lizzdo Media",
@@ -131,7 +183,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Social Media Design",
+    "whatWeProvide": [
+      { "title": "Bespoke Feed Systems", "desc": "Modular post and carousel layout frameworks built for easy repeat usage." },
+      { "title": "Cross-Platform Header Suites", "desc": "Pixel-perfect banners for LinkedIn, X, Facebook, and YouTube." },
+      { "title": "Profile Identity Assets", "desc": "Custom story highlight covers, avatars, and bio lockups." }
+    ],
     "deliverables": [
       "Instagram Feed Grid & Post Templates",
       "Engaging Multi-Slide Carousel Frameworks",
@@ -139,11 +196,18 @@
       "Platform Header Banners (LinkedIn, X, YouTube, Facebook)",
       "Highlight Icons & Profile Identity Kits"
     ],
+    "whyItMatters": [
+      { "title": "Feed Authority", "desc": "A polished, consistent social aesthetic immediately positions your brand above competitors." },
+      { "title": "Time Savings", "desc": "Structured template systems allow you to produce fresh posts rapidly without compromising quality." }
+    ],
     "process": [
       { "step": "01", "title": "Aesthetic Audit", "desc": "Auditing current feeds and defining the visual tone." },
       { "step": "02", "title": "Template System Creation", "desc": "Building modular, easy-to-use template layouts." },
       { "step": "03", "title": "Testing & Grid Flow", "desc": "Checking grid harmony and mobile readability." },
-      { "step": "04", "title": "Master File Delivery", "desc": "Delivering ready-to-publish assets and Canva/Figma master files." }
+      { "step": "04", "title": "Master File Delivery", "desc": "Delivering ready-to-publish assets and master files." }
+    ],
+    "faqs": [
+      { "question": "Are the templates easy to edit?", "answer": "Yes. We deliver organized templates that you or your team can update easily with new text and imagery." }
     ],
     "iconGlyph": "●",
     "seoTitle": "Social Media Design & Templates — Lizzdo Media",
@@ -161,7 +225,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Social Media Content",
+    "whatWeProvide": [
+      { "title": "Turnkey Visual Asset Drops", "desc": "Ready-to-post graphics structured around your core business pillars." },
+      { "title": "High-Retention Carousels", "desc": "Educational and value-packed slide sequences that encourage saves and shares." },
+      { "title": "Product & Social Proof Showcases", "desc": "Compelling cards featuring customer feedback, transformations, and offers." }
+    ],
     "deliverables": [
       "Weekly & Monthly Visual Content Packs",
       "Educational & Value-Driven Graphic Posts",
@@ -169,11 +238,18 @@
       "Product Spotlight & Promotional Visuals",
       "Storytelling Graphics & Infographics"
     ],
+    "whyItMatters": [
+      { "title": "Audience Engagement", "desc": "Valuable visual content attracts genuine followers who convert into clients." },
+      { "title": "Continuous Presence", "desc": "Stay top-of-mind without stressing over daily design and asset production." }
+    ],
     "process": [
       { "step": "01", "title": "Content Calendar Planning", "desc": "Identifying key content pillars and campaign themes." },
       { "step": "02", "title": "Asset Production", "desc": "Designing custom visuals tailored for maximum engagement." },
       { "step": "03", "title": "Copy & Caption Pairing", "desc": "Matching visuals with crisp, action-oriented captions." },
       { "step": "04", "title": "Delivery & Scheduling", "desc": "Delivering organized monthly content drops." }
+    ],
+    "faqs": [
+      { "question": "Can you provide captions alongside the graphics?", "answer": "Yes. We can supply engaging caption drafts, hashtag recommendations, and call-to-actions with each content pack." }
     ],
     "iconGlyph": "✦",
     "seoTitle": "Visual Social Media Content Creation — Lizzdo Media",
@@ -191,7 +267,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Social Media Management",
+    "whatWeProvide": [
+      { "title": "Automated Publishing & Curation", "desc": "Structured scheduling during peak engagement windows across platforms." },
+      { "title": "Platform Profile Optimization", "desc": "Refining bios, links, highlight structures, and SEO keywords." },
+      { "title": "Strategic Growth Oversight", "desc": "Consistent monitoring of content performance to refine ongoing strategy." }
+    ],
     "deliverables": [
       "Full Profile Curation & Optimization",
       "Automated & Timely Content Scheduling",
@@ -199,11 +280,18 @@
       "Monthly Performance & Reach Insights",
       "Hashtag & Keyword Strategy Optimization"
     ],
+    "whyItMatters": [
+      { "title": "Hands-Free Consistency", "desc": "Your brand maintains an active, professional presence while you focus on core operations." },
+      { "title": "Strategic Optimization", "desc": "Continual data review ensures content efforts align with business growth goals." }
+    ],
     "process": [
       { "step": "01", "title": "Onboarding & Access", "desc": "Setting up publishing pipelines and brand tone guidelines." },
       { "step": "02", "title": "Strategy Implementation", "desc": "Executing planned content schedules consistently." },
       { "step": "03", "title": "Community Interaction", "desc": "Keeping profiles active and engaging." },
       { "step": "04", "title": "Review & Refinement", "desc": "Analyzing performance data to refine content strategy." }
+    ],
+    "faqs": [
+      { "question": "Which social platforms do you support?", "answer": "We manage Instagram, Facebook, LinkedIn, and X (Twitter) channels with platform-specific formatting." }
     ],
     "iconGlyph": "✶",
     "seoTitle": "Social Media Management — Lizzdo Media",
@@ -221,7 +309,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Digital Marketing",
+    "whatWeProvide": [
+      { "title": "Comprehensive Promotional Roadmaps", "desc": "Target audience segmentation, value proposition framing, and channel selection." },
+      { "title": "Conversion-Focused Asset Production", "desc": "Landing page graphics, lead magnets, and campaign visual collateral." },
+      { "title": "Performance Tracking Guidance", "desc": "Clear conversion path definitions and tracking recommendations." }
+    ],
     "deliverables": [
       "Integrated Digital Marketing Strategy",
       "Target Audience & Customer Persona Mapping",
@@ -229,11 +322,18 @@
       "Lead Magnet Design & Promotional Graphics",
       "Campaign Performance Analysis Guidance"
     ],
+    "whyItMatters": [
+      { "title": "Targeted Lead Generation", "desc": "Reach prospective clients who actively need your services." },
+      { "title": "Unified Messaging", "desc": "Align all promotional channels under a singular, compelling brand story." }
+    ],
     "process": [
       { "step": "01", "title": "Goal Definition", "desc": "Establishing clear campaign KPIs and target milestones." },
       { "step": "02", "title": "Campaign Architecture", "desc": "Structuring message hierarchy and promotional channels." },
       { "step": "03", "title": "Creative Production", "desc": "Generating high-converting promotional assets." },
       { "step": "04", "title": "Launch & Optimization", "desc": "Monitoring campaign signals and refining creative performance." }
+    ],
+    "faqs": [
+      { "question": "How do you tailor the marketing strategy to my niche?", "answer": "We conduct an in-depth review of your ideal customer profile, competitors, and core offerings to build tailored messaging." }
     ],
     "iconGlyph": "❖",
     "seoTitle": "Targeted Digital Marketing — Lizzdo Media",
@@ -251,7 +351,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss Advertising Creatives",
+    "whatWeProvide": [
+      { "title": "Multi-Format Ad Suites", "desc": "Square (1:1), vertical story (9:16), and landscape banner (16:9) formats." },
+      { "title": "A/B Testing Hook Variations", "desc": "Multiple headline and visual variants designed to test what converts best." },
+      { "title": "Thumb-Stopping Contrast", "desc": "Optical contrast and visual pacing engineered to capture feed attention." }
+    ],
     "deliverables": [
       "Meta Ads (Facebook & Instagram Feed + Stories)",
       "Google Display Network Banners (Standard Responsive Sizes)",
@@ -259,11 +364,18 @@
       "A/B Testing Creative Variations (Headlines & Imagery)",
       "Ad Copy Alignment & CTA Focus"
     ],
+    "whyItMatters": [
+      { "title": "Lower Acquisition Costs", "desc": "Higher click-through rates from strong creatives directly reduce cost-per-click and CPA." },
+      { "title": "Maximized Ad Spend", "desc": "High-quality visual hooks make every dollar of your advertising budget work harder." }
+    ],
     "process": [
       { "step": "01", "title": "Ad Objective & Placement", "desc": "Identifying platforms, formats, and conversion targets." },
       { "step": "02", "title": "Hook & Angle Design", "desc": "Developing multiple visual hooks for testing." },
       { "step": "03", "title": "Multi-Size Generation", "desc": "Exporting every pixel-perfect ratio required." },
       { "step": "04", "title": "Iterative Optimization", "desc": "Delivering fresh ad variations based on test results." }
+    ],
+    "faqs": [
+      { "question": "Do you design for video ads as well as static?", "answer": "We produce high-impact static visual suites and motion-ready graphic story assets optimized for video feeds." }
     ],
     "iconGlyph": "⬡",
     "seoTitle": "High-Converting Advertising Creatives — Lizzdo Media",
@@ -281,7 +393,12 @@
     "featuredImage": "/assets/logo.webp",
     "published": true,
     "featured": true,
-    "ctaText": "Discuss This Service",
+    "ctaText": "Discuss AI Visuals",
+    "whatWeProvide": [
+      { "title": "Art-Directed AI Synthesis", "desc": "Bespoke conceptual visuals created under strict stylistic and color parameters." },
+      { "title": "Photorealistic Product Contexts", "desc": "Realistic background and lifestyle scenes tailored for your merchandise." },
+      { "title": "High-Resolution Retouching", "desc": "Professional manual artifact removal, color grading, and upscale processing." }
+    ],
     "deliverables": [
       "Custom AI-Generated Brand Visuals & Scenes",
       "Photorealistic Commercial & Product Context Imagery",
@@ -289,11 +406,18 @@
       "High-Resolution Upscaling & Post-Processing Retouching",
       "Proprietary Prompt Direction & Consistency Styling"
     ],
+    "whyItMatters": [
+      { "title": "Infinite Creative Possibilities", "desc": "Render imaginative, otherworldly, or high-concept visuals without physical limitations." },
+      { "title": "Cost Efficiency", "desc": "Achieve high-production aesthetic value at a fraction of traditional studio photography costs." }
+    ],
     "process": [
       { "step": "01", "title": "Prompt Engineering & Moodboard", "desc": "Defining aesthetic parameters, lighting, and camera angles." },
       { "step": "02", "title": "Iterative Generation", "desc": "Exploring dozens of variations to pinpoint ideal compositions." },
       { "step": "03", "title": "Manual Retouching & Compositing", "desc": "Polishing details, color grading, and cleaning artifacts." },
       { "step": "04", "title": "High-Res Master Delivery", "desc": "Upscaling to ultra-high resolution for web and print." }
+    ],
+    "faqs": [
+      { "question": "Can you match our existing brand colors in AI imagery?", "answer": "Yes. We apply custom prompt tokens and post-processing color grading to ensure precise palette harmony." }
     ],
     "iconGlyph": "✦",
     "seoTitle": "Art-Directed AI Visual Content — Lizzdo Media",
@@ -312,6 +436,11 @@
     "published": true,
     "featured": true,
     "ctaText": "Discuss Website Project",
+    "whatWeProvide": [
+      { "title": "Streamlined 1-to-3 Page Structure", "desc": "Focused web architecture designed to communicate value and convert visitors immediately." },
+      { "title": "Mobile-First Precision", "desc": "100% responsive layouts tested across all modern smartphone and tablet viewports." },
+      { "title": "Integrated Inquiry Channels", "desc": "Seamless contact forms and direct WhatsApp click-to-chat routing." }
+    ],
     "deliverables": [
       "Clean One-Page, Two-Page, or Three-Page Architecture",
       "100% Mobile Responsive & Touch-Optimized Layouts",
@@ -319,11 +448,20 @@
       "Contact & WhatsApp Click-to-Chat Integration",
       "SEO Optimization & Social Sharing Meta Tags"
     ],
+    "whyItMatters": [
+      { "title": "Instant Conversions", "desc": "Eliminating multi-click complexity guides visitors straight to booking an inquiry or chatting on WhatsApp." },
+      { "title": "Fast Performance", "desc": "Lightweight code ensures rapid page loads that keep visitors engaged and improve SEO rankings." }
+    ],
     "process": [
       { "step": "01", "title": "Structure & Content Mapping", "desc": "Outlining pages, sections, and clear conversion paths." },
       { "step": "02", "title": "Visual Design & Prototyping", "desc": "Crafting modern layouts aligned with your brand identity." },
       { "step": "03", "title": "Development & Testing", "desc": "Building clean responsive code and testing across devices." },
       { "step": "04", "title": "Launch & Handover", "desc": "Deploying to fast hosting and verifying all integrations." }
+    ],
+    "faqs": [
+      { "question": "How long does it take to build a 1-to-3 page website?", "answer": "Typically 1 to 2 weeks from content approval to live deployment." },
+      { "question": "Can I connect my own custom domain?", "answer": "Yes. We configure and point your custom domain with free SSL certificate setup." },
+      { "question": "Is the website easy to update?", "answer": "Yes. Content can be managed directly via Decap CMS or clean JSON configurations." }
     ],
     "iconGlyph": "⬢",
     "seoTitle": "Fast 1-to-3 Page Website Development — Lizzdo Media",

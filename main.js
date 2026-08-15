@@ -185,8 +185,12 @@ function renderPage(section, param, queryParams) {
       break;
 
     case 'home':
-    default:
+    case '':
       renderHomePage(root);
+      break;
+
+    default:
+      render404Page(root, `The requested page "#${escapeHtml(section)}" could not be found.`);
       break;
   }
 
@@ -927,13 +931,16 @@ function renderHomePage(container) {
 /**
  * Services Overview View
  */
+/**
+ * Services Overview View
+ */
 function renderServicesOverview(container) {
   const site = getSiteConfig();
   const services = getServices();
   
   updateSEO(
     `Services — ${site.name}`,
-    'Explore our 11 core creative and digital disciplines: Brand identity, graphic design, social media, digital marketing, advertising, and fast modern websites.',
+    'Explore our 11 core creative and digital disciplines: Brand identity, logo design, graphic design, flyers, social media, digital marketing, advertising, and fast modern websites.',
     site.logo,
     'services'
   );
@@ -976,6 +983,18 @@ function renderServicesOverview(container) {
           .join('')}
       </div>
 
+      <!-- Action Bar -->
+      <div class="detail-action-bar anim" style="--d: 0.35s; margin-bottom: clamp(32px, 4vh, 48px);">
+        <div class="action-bar-text">
+          <h4>Have a custom or multi-discipline project in mind?</h4>
+          <p>We review every inquiry individually and provide tailored proposals with clear deliverables.</p>
+        </div>
+        <a href="#contact" class="btn-cta">
+          Start a Project Discussion
+          <i class="fa-solid fa-arrow-right" style="font-size: 12px; margin-left: 6px;"></i>
+        </a>
+      </div>
+
       ${renderFooterHTML()}
     </div>
   `;
@@ -983,10 +1002,24 @@ function renderServicesOverview(container) {
 
 /**
  * Service Detail View
+ * Exact Uniform Structure: Hero -> Intro -> What We Provide -> Deliverables -> Why It Matters -> Related Work -> Process -> FAQs -> CTA -> Footer
  */
 function renderServiceDetail(container, slug) {
   const site = getSiteConfig();
-  const service = getServiceBySlug(slug) || getServices()[0];
+  const service = getServiceBySlug(slug);
+  
+  if (!service) {
+    render404Page(container, 'Service not found');
+    return;
+  }
+
+  // Find related portfolio work
+  const allProjects = getPortfolio();
+  const relatedProjects = allProjects.filter((p) => {
+    const catMatch = p.category && service.category && p.category.toLowerCase() === service.category.toLowerCase();
+    const serviceMatch = p.services && p.services.some(s => s.toLowerCase().includes(service.title.toLowerCase()) || service.title.toLowerCase().includes(s.toLowerCase()));
+    return catMatch || serviceMatch;
+  }).slice(0, 3);
   
   updateSEO(
     service.seoTitle || `${service.title} — ${site.name}`,
@@ -1003,19 +1036,41 @@ function renderServiceDetail(container, slug) {
           <span>All Services</span>
         </a>
 
-        <!-- Detail Header Card -->
+        <!-- 1. Detail Header Card / Intro -->
         <div class="detail-header-card anim" style="--d: 0.12s">
           <span class="detail-num-tag">${service.number || '01'} // ${service.iconGlyph || '◆'}</span>
           <h1 class="detail-title">${service.title}</h1>
-          <p class="detail-description">${service.description}</p>
+          <p class="detail-description">${service.description || service.summary}</p>
         </div>
 
-        <!-- Deliverables Card -->
+        <!-- 2. What We Provide Card -->
+        ${service.whatWeProvide && service.whatWeProvide.length > 0 ? `
+          <div class="detail-section-card anim" style="--d: 0.18s">
+            <h3 class="detail-section-title">
+              <i class="fa-solid fa-layer-group" style="font-size: 14px; opacity: 0.8;"></i>
+              <span>What We Provide</span>
+            </h3>
+            <div class="elements-grid">
+              ${service.whatWeProvide
+                .map(
+                  (item) => `
+                <div class="element-pill-card">
+                  <h4>${escapeHtml(item.title)}</h4>
+                  <p>${escapeHtml(item.desc)}</p>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- 3. Deliverables Card -->
         ${service.deliverables && service.deliverables.length > 0 ? `
-          <div class="detail-section-card anim" style="--d: 0.2s">
+          <div class="detail-section-card anim" style="--d: 0.22s">
             <h3 class="detail-section-title">
               <i class="fa-solid fa-check-double" style="font-size: 14px; opacity: 0.8;"></i>
-              <span>What We Provide & Deliver</span>
+              <span>Deliverables Included</span>
             </h3>
             <ul class="deliverables-list">
               ${service.deliverables
@@ -1023,7 +1078,7 @@ function renderServiceDetail(container, slug) {
                   (item) => `
                 <li class="deliverable-item">
                   <span class="deliverable-dot"></span>
-                  <span>${item}</span>
+                  <span>${escapeHtml(item)}</span>
                 </li>
               `
                 )
@@ -1032,9 +1087,62 @@ function renderServiceDetail(container, slug) {
           </div>
         ` : ''}
 
-        <!-- Execution Process Card -->
+        <!-- 4. Why It Matters Card -->
+        ${service.whyItMatters && service.whyItMatters.length > 0 ? `
+          <div class="detail-section-card anim" style="--d: 0.26s">
+            <h3 class="detail-section-title">
+              <i class="fa-solid fa-lightbulb" style="font-size: 14px; opacity: 0.8;"></i>
+              <span>Why It Matters for Your Brand</span>
+            </h3>
+            <div class="elements-grid">
+              ${service.whyItMatters
+                .map(
+                  (item) => `
+                <div class="element-pill-card">
+                  <h4>${escapeHtml(item.title)}</h4>
+                  <p>${escapeHtml(item.desc)}</p>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- 5. Related Work Case Studies -->
+        ${relatedProjects.length > 0 ? `
+          <div class="detail-section-card anim" style="--d: 0.3s">
+            <h3 class="detail-section-title">
+              <i class="fa-solid fa-diagram-project" style="font-size: 14px; opacity: 0.8;"></i>
+              <span>Related Case Studies & Work</span>
+            </h3>
+            <div class="portfolio-grid" style="margin-bottom: 0;">
+              ${relatedProjects
+                .map(
+                  (proj, idx) => `
+                <a href="#work/${proj.slug}" class="project-card" id="related-card-${proj.slug}">
+                  <div class="project-thumb">
+                    <span class="project-thumb-badge">${proj.category}</span>
+                    <img src="${proj.featuredImage || '/assets/logo.webp'}" alt="${proj.title}" />
+                  </div>
+                  <div class="project-content">
+                    <h3 class="project-title">${proj.title}</h3>
+                    <p class="project-summary">${proj.summary}</p>
+                    <div class="project-tags">
+                      ${(proj.services || []).map((s) => `<span class="tag-pill">${s}</span>`).join('')}
+                    </div>
+                  </div>
+                </a>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- 6. Execution Process Card -->
         ${service.process && service.process.length > 0 ? `
-          <div class="detail-section-card anim" style="--d: 0.28s">
+          <div class="detail-section-card anim" style="--d: 0.34s">
             <h3 class="detail-section-title">
               <i class="fa-solid fa-list-check" style="font-size: 14px; opacity: 0.8;"></i>
               <span>Execution Process</span>
@@ -1045,8 +1153,8 @@ function renderServiceDetail(container, slug) {
                   (p) => `
                 <div class="process-step-card">
                   <span class="process-step-num">${p.step}</span>
-                  <h4 class="process-step-title">${p.title}</h4>
-                  <p class="process-step-desc">${p.desc}</p>
+                  <h4 class="process-step-title">${escapeHtml(p.title)}</h4>
+                  <p class="process-step-desc">${escapeHtml(p.desc)}</p>
                 </div>
               `
                 )
@@ -1055,14 +1163,41 @@ function renderServiceDetail(container, slug) {
           </div>
         ` : ''}
 
-        <!-- Action Bar -->
-        <div class="detail-action-bar anim" style="--d: 0.35s">
+        <!-- 7. Service Specific FAQs -->
+        ${service.faqs && service.faqs.length > 0 ? `
+          <div class="detail-section-card anim" style="--d: 0.38s">
+            <h3 class="detail-section-title">
+              <i class="fa-solid fa-circle-question" style="font-size: 14px; opacity: 0.8;"></i>
+              <span>Service FAQs</span>
+            </h3>
+            <div class="faq-list">
+              ${service.faqs
+                .map(
+                  (faq, idx) => `
+                <div class="faq-item ${idx === 0 ? 'open' : ''}">
+                  <button class="faq-question-btn" type="button">
+                    <span>${escapeHtml(faq.question)}</span>
+                    <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+                  </button>
+                  <div class="faq-answer-panel">
+                    <p class="faq-answer-text">${escapeHtml(faq.answer)}</p>
+                  </div>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- 8. Action Bar CTA -->
+        <div class="detail-action-bar anim" style="--d: 0.42s">
           <div class="action-bar-text">
             <h4>Ready to discuss ${service.shortTitle || service.title}?</h4>
-            <p>We provide tailored proposals and quotes based on your exact requirements.</p>
+            <p>We provide tailored proposals and custom quotes based on your exact requirements.</p>
           </div>
-          <a href="#contact?service=${encodeURIComponent(service.title)}" class="btn-cta">
-            ${service.ctaText || 'Discuss This Service'}
+          <a href="#contact?service=${encodeURIComponent(service.title)}" class="btn-cta" id="service-cta-${service.slug}">
+            ${service.ctaText || `Discuss ${service.shortTitle || service.title}`}
             <i class="fa-solid fa-arrow-right" style="font-size: 12px; margin-left: 6px;"></i>
           </a>
         </div>
@@ -1075,6 +1210,7 @@ function renderServiceDetail(container, slug) {
 
 /**
  * Work / Portfolio Overview View
+ * Structure: Hero -> Intro -> Filters -> Project Gallery -> Instagram CTA -> Final CTA -> Footer
  */
 function renderWorkOverview(container) {
   const site = getSiteConfig();
@@ -1082,17 +1218,32 @@ function renderWorkOverview(container) {
   
   updateSEO(
     `Work & Portfolio — ${site.name}`,
-    'Explore recent client case studies across brand identity systems, social campaigns, advertising creative suites, and websites.',
+    'Explore selected case studies across brand identity systems, logos, flyer designs, social content, advertising creatives, and websites.',
     site.logo,
     'work'
   );
 
-  const categories = ['All', 'Branding', 'Social Media', 'Advertising', 'Websites', 'AI Visuals', 'Flyer Design'];
+  const categories = [
+    'All',
+    'Branding',
+    'Logo Design',
+    'Graphic Design',
+    'Flyer Design',
+    'Social Media',
+    'Marketing',
+    'Advertising',
+    'AI Visuals',
+    'Websites'
+  ];
 
   const filteredProjects =
     activeCategory === 'All'
       ? allProjects
-      : allProjects.filter((p) => p.category && p.category.toLowerCase().includes(activeCategory.toLowerCase()));
+      : allProjects.filter((p) => {
+          if (!p.category) return false;
+          return p.category.toLowerCase().includes(activeCategory.toLowerCase()) ||
+            (p.services && p.services.some(s => s.toLowerCase().includes(activeCategory.toLowerCase())));
+        });
 
   container.innerHTML = `
     <div class="view-container">
@@ -1114,7 +1265,7 @@ function renderWorkOverview(container) {
         ${categories
           .map(
             (cat) => `
-          <button class="filter-pill ${cat === activeCategory ? 'active' : ''}" data-cat="${cat}">
+          <button class="filter-pill ${cat.toLowerCase() === activeCategory.toLowerCase() ? 'active' : ''}" data-cat="${cat}">
             ${cat}
           </button>
         `
@@ -1124,32 +1275,60 @@ function renderWorkOverview(container) {
 
       <!-- Portfolio Grid -->
       <div class="portfolio-grid">
-        ${filteredProjects
-          .map(
-            (proj, idx) => `
-          <a href="#work/${proj.slug}" class="project-card anim" style="--d: ${0.28 + (idx % 6) * 0.06}s" id="portfolio-card-${proj.slug}">
-            <div class="project-thumb">
-              <span class="project-thumb-badge">${proj.category}</span>
-              <img src="${proj.featuredImage || '/assets/logo.webp'}" alt="${proj.title}" />
+        ${filteredProjects.length > 0
+          ? filteredProjects
+              .map(
+                (proj, idx) => `
+              <a href="#work/${proj.slug}" class="project-card anim" style="--d: ${0.28 + (idx % 6) * 0.05}s" id="portfolio-card-${proj.slug}">
+                <div class="project-thumb">
+                  <span class="project-thumb-badge">${proj.category}</span>
+                  <img src="${proj.featuredImage || '/assets/logo.webp'}" alt="${proj.title}" loading="lazy" />
+                </div>
+                <div class="project-content">
+                  <h3 class="project-title">${proj.title}</h3>
+                  <p class="project-summary">${proj.summary}</p>
+                  <div class="project-tags">
+                    ${(proj.services || []).map((s) => `<span class="tag-pill">${s}</span>`).join('')}
+                  </div>
+                </div>
+              </a>
+            `
+              )
+              .join('')
+          : `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: #8e8e94;">
+              <p>No projects found in this category. Showing all projects soon.</p>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">${proj.title}</h3>
-              <p class="project-summary">${proj.summary}</p>
-              <div class="project-tags">
-                ${(proj.services || []).map((s) => `<span class="tag-pill">${s}</span>`).join('')}
-              </div>
-            </div>
+          `}
+      </div>
+
+      <!-- Instagram CTA -->
+      ${site.socials.instagram ? `
+        <div style="display: flex; justify-content: center; margin-bottom: clamp(32px, 4vh, 48px);">
+          <a href="${site.socials.instagram}" target="_blank" rel="noopener noreferrer" class="btn-instagram-cta">
+            <i class="fa-brands fa-instagram"></i>
+            <span>See More Work on Instagram</span>
           </a>
-        `
-          )
-          .join('')}
+        </div>
+      ` : ''}
+
+      <!-- Action Bar -->
+      <div class="detail-action-bar anim" style="--d: 0.35s; margin-bottom: clamp(32px, 4vh, 48px);">
+        <div class="action-bar-text">
+          <h4>Have a project in mind for your brand?</h4>
+          <p>Every engagement is customized to your exact objectives and timeline.</p>
+        </div>
+        <a href="#contact" class="btn-cta">
+          Start a Project Inquiry
+          <i class="fa-solid fa-arrow-right" style="font-size: 12px; margin-left: 6px;"></i>
+        </a>
       </div>
 
       ${renderFooterHTML()}
     </div>
   `;
 
-  // Attach filter handlers
+  // Attach filter handlers for fast client-side filtering
   const filterBtns = container.querySelectorAll('.filter-pill');
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -1161,10 +1340,22 @@ function renderWorkOverview(container) {
 
 /**
  * Work / Project Detail View
+ * Exact Uniform Structure: Hero -> Info -> Overview -> Objective -> Creative Direction -> Services Provided -> Final Work & Gallery -> Video -> Related Projects -> CTA -> Footer
  */
 function renderWorkDetail(container, slug) {
   const site = getSiteConfig();
-  const project = getPortfolioBySlug(slug) || getPortfolio()[0];
+  const project = getPortfolioBySlug(slug);
+  
+  if (!project) {
+    render404Page(container, 'Project not found');
+    return;
+  }
+
+  // Find related projects (same category or shared service)
+  const allProjects = getPortfolio();
+  const relatedProjects = allProjects
+    .filter((p) => p.slug !== project.slug && (p.category === project.category || (p.services && project.services && p.services.some(s => project.services.includes(s)))))
+    .slice(0, 3);
   
   updateSEO(
     project.seoTitle || `${project.title} Case Study — ${site.name}`,
@@ -1181,34 +1372,85 @@ function renderWorkDetail(container, slug) {
           <span>All Portfolio Works</span>
         </a>
 
-        <!-- Project Hero Card -->
+        <!-- 1. Project Hero & Overview Card -->
         <div class="detail-header-card anim" style="--d: 0.12s">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
             <span class="tag-pill" style="font-size: 13px; padding: 4px 12px;">${project.category}</span>
             <span style="font-size: 13px; color: #8e8e8e;">${project.year || '2026'}${project.client ? ` • Client: ${project.client}` : ''}</span>
           </div>
           <h1 class="detail-title">${project.title}</h1>
-          <p class="detail-description">${project.description}</p>
+          <p class="detail-description">${project.description || project.summary}</p>
           
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+          <!-- Project Metadata Grid -->
+          <div class="project-meta-grid">
+            ${project.client ? `
+              <div class="project-meta-item">
+                <span class="project-meta-label">Client</span>
+                <span class="project-meta-value">${escapeHtml(project.client)}</span>
+              </div>
+            ` : ''}
+            <div class="project-meta-item">
+              <span class="project-meta-label">Year</span>
+              <span class="project-meta-value">${escapeHtml(project.year || '2026')}</span>
+            </div>
+            <div class="project-meta-item">
+              <span class="project-meta-label">Category</span>
+              <span class="project-meta-value">${escapeHtml(project.category)}</span>
+            </div>
+            ${project.industry ? `
+              <div class="project-meta-item">
+                <span class="project-meta-label">Industry</span>
+                <span class="project-meta-value">${escapeHtml(project.industry)}</span>
+              </div>
+            ` : ''}
+          </div>
+
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;">
             ${(project.services || []).map((s) => `<span class="tag-pill">${s}</span>`).join('')}
           </div>
         </div>
 
-        <!-- Project Deliverables Showcase -->
+        <!-- 2. Project Objective Card (if available) -->
+        ${project.objective ? `
+          <div class="project-narrative-card anim" style="--d: 0.18s">
+            <h3>
+              <i class="fa-solid fa-bullseye" style="font-size: 14px; opacity: 0.85;"></i>
+              <span>Project Objective</span>
+            </h3>
+            <p>${escapeHtml(project.objective)}</p>
+          </div>
+        ` : ''}
+
+        <!-- 3. Creative Direction Card (if available) -->
+        ${project.creativeDirection ? `
+          <div class="project-narrative-card anim" style="--d: 0.22s">
+            <h3>
+              <i class="fa-solid fa-compass-drafting" style="font-size: 14px; opacity: 0.85;"></i>
+              <span>Creative Direction & System</span>
+            </h3>
+            <p>${escapeHtml(project.creativeDirection)}</p>
+          </div>
+        ` : ''}
+
+        <!-- 4. Final Work & Deliverables Gallery -->
         ${project.gallery && project.gallery.length > 0 ? `
-          <div class="detail-section-card anim" style="--d: 0.2s">
+          <div class="detail-section-card anim" style="--d: 0.26s">
             <h3 class="detail-section-title">
               <i class="fa-solid fa-layer-group" style="font-size: 14px; opacity: 0.8;"></i>
-              <span>Project Deliverables & Gallery</span>
+              <span>Final Work & Deliverables</span>
             </h3>
-            <div class="elements-grid">
+            <div class="project-gallery-grid">
               ${project.gallery
                 .map(
                   (g) => `
-                <div class="element-pill-card">
-                  <h4>${g.title}</h4>
-                  <p>${g.desc}</p>
+                <div class="gallery-card">
+                  <div class="gallery-card-image">
+                    <img src="${g.image || project.featuredImage || '/assets/logo.webp'}" alt="${escapeHtml(g.title)}" loading="lazy" />
+                  </div>
+                  <div class="gallery-card-body">
+                    <h4>${escapeHtml(g.title)}</h4>
+                    <p>${escapeHtml(g.desc)}</p>
+                  </div>
                 </div>
               `
                 )
@@ -1217,13 +1459,60 @@ function renderWorkDetail(container, slug) {
           </div>
         ` : ''}
 
-        <!-- Action Bar -->
-        <div class="detail-action-bar anim" style="--d: 0.28s">
+        <!-- 5. Optional Video Showcase (only if videoUrl exists) -->
+        ${project.videoUrl && project.videoUrl.trim() !== '' ? `
+          <div class="detail-section-card anim" style="--d: 0.3s">
+            <h3 class="detail-section-title">
+              <i class="fa-solid fa-play" style="font-size: 14px; opacity: 0.8;"></i>
+              <span>Video Presentation</span>
+            </h3>
+            <div class="project-video-wrapper">
+              ${project.videoUrl.includes('youtube.com') || project.videoUrl.includes('vimeo.com')
+                ? `<iframe src="${escapeHtml(project.videoUrl)}" title="${escapeHtml(project.title)} video" allowfullscreen></iframe>`
+                : `<video controls src="${escapeHtml(project.videoUrl)}" poster="${project.featuredImage || ''}"></video>`
+              }
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- 6. Related Work -->
+        ${relatedProjects.length > 0 ? `
+          <div class="detail-section-card anim" style="--d: 0.34s">
+            <h3 class="detail-section-title">
+              <i class="fa-solid fa-diagram-project" style="font-size: 14px; opacity: 0.8;"></i>
+              <span>Related Case Studies</span>
+            </h3>
+            <div class="portfolio-grid" style="margin-bottom: 0;">
+              ${relatedProjects
+                .map(
+                  (proj) => `
+                <a href="#work/${proj.slug}" class="project-card" id="related-case-${proj.slug}">
+                  <div class="project-thumb">
+                    <span class="project-thumb-badge">${proj.category}</span>
+                    <img src="${proj.featuredImage || '/assets/logo.webp'}" alt="${proj.title}" loading="lazy" />
+                  </div>
+                  <div class="project-content">
+                    <h3 class="project-title">${proj.title}</h3>
+                    <p class="project-summary">${proj.summary}</p>
+                    <div class="project-tags">
+                      ${(proj.services || []).map((s) => `<span class="tag-pill">${s}</span>`).join('')}
+                    </div>
+                  </div>
+                </a>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        <!-- 7. Action Bar CTA -->
+        <div class="detail-action-bar anim" style="--d: 0.38s">
           <div class="action-bar-text">
             <h4>Interested in a similar project?</h4>
             <p>Let's discuss how we can build something tailored for your business.</p>
           </div>
-          <a href="#contact?service=${encodeURIComponent(project.category)}" class="btn-cta">
+          <a href="#contact?service=${encodeURIComponent(project.category)}" class="btn-cta" id="project-start-similar">
             Start a Similar Project
             <i class="fa-solid fa-arrow-right" style="font-size: 12px; margin-left: 6px;"></i>
           </a>
@@ -1360,11 +1649,16 @@ function renderBlogOverview(container) {
 
 /**
  * Blog Article Detail View with Code Blocks & Markdown Formatting
- * (Requirement 11, 12, 13)
+ * (Requirements 11, 12, 13, 28, 29: Lead Gen CTA with optional Related Service connection)
  */
 function renderBlogDetail(container, slug) {
   const site = getSiteConfig();
-  const post = getBlogPostBySlug(slug) || getBlogPosts()[0];
+  const post = getBlogPostBySlug(slug);
+  
+  if (!post) {
+    render404Page(container, 'Article not found');
+    return;
+  }
   
   updateSEO(
     post.seoTitle || `${post.title} — ${site.name}`,
@@ -1374,6 +1668,7 @@ function renderBlogDetail(container, slug) {
   );
 
   const articleBodyHtml = renderMarkdown(post.body || post.content);
+  const relatedServiceName = post.relatedService || null;
 
   container.innerHTML = `
     <div class="view-container">
@@ -1397,18 +1692,57 @@ function renderBlogDetail(container, slug) {
           ${articleBodyHtml}
         </div>
 
+        <!-- Blog Lead Gen CTA connected to Related Service -->
         <div class="detail-action-bar anim" style="--d: 0.28s">
           <div class="action-bar-text">
-            <h4>Have questions or need assistance with your brand?</h4>
-            <p>Our team is available to help implement these strategies for your business.</p>
+            <h4>${relatedServiceName ? `Ready to discuss ${relatedServiceName} for your brand?` : 'Need assistance executing these strategies?'}</h4>
+            <p>Our team is available to help implement these solutions tailored to your business goals.</p>
           </div>
-          <a href="#contact" class="btn-cta">
-            Contact Lizzdo Media
+          <a href="#contact${relatedServiceName ? `?service=${encodeURIComponent(relatedServiceName)}` : ''}" class="btn-cta">
+            ${relatedServiceName ? `Discuss ${relatedServiceName}` : 'Start a Project'}
             <i class="fa-solid fa-arrow-right" style="font-size: 12px; margin-left: 6px;"></i>
           </a>
         </div>
       </div>
 
+      ${renderFooterHTML()}
+    </div>
+  `;
+}
+
+/**
+ * 404 Not Found View
+ */
+function render404Page(container, message = 'Page not found.') {
+  const site = getSiteConfig();
+  updateSEO(
+    `Page Not Found — ${site.name}`,
+    'The requested page or case study could not be located.',
+    site.logo,
+    '404'
+  );
+
+  container.innerHTML = `
+    <div class="view-container">
+      <div class="error-404-container anim" style="--d: 0.1s">
+        <div class="error-404-badge">
+          <span class="badge-dot"></span>
+          <span>404 // Not Found</span>
+        </div>
+        <h1 class="error-404-title">Page Not Found</h1>
+        <p class="error-404-desc">
+          ${escapeHtml(message || 'The page or case study you requested could not be located.')}
+        </p>
+        <div class="error-404-actions">
+          <a href="#home" class="btn-cta">
+            <i class="fa-solid fa-house" style="margin-right: 6px;"></i>
+            Back to Home
+          </a>
+          <a href="#services" class="sign-in-btn" style="height: 44px; display: inline-flex; align-items: center;">
+            View Services
+          </a>
+        </div>
+      </div>
       ${renderFooterHTML()}
     </div>
   `;
