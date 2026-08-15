@@ -6,7 +6,7 @@
   "logo": "/assets/logo.webp",
   "logoAlt": "/assets/logo.webp",
   "favicon": "/assets/logo.webp",
-  "defaultSocialImage": "/assets/logo.webp",
+  "defaultSocialImage": "/assets/og-image.jpg",
   "contactEmail": "hello@lizzdomedia.com",
   "whatsappNumber": "+1234567890",
   "whatsappCtaText": "Chat on WhatsApp",

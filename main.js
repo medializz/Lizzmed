@@ -22,10 +22,28 @@ import {
 let activeCategory = 'All';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initBackgroundVideo();
   initMobileMenu();
   initGlobalEvents();
   initRouting();
 });
+
+/**
+ * Background Video Safe Autoplay Handler
+ */
+function initBackgroundVideo() {
+  const video = document.getElementById('background-video');
+  if (video) {
+    video.muted = true;
+    video.playsInline = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay prevented by power saver or battery saving mode; fallback poster renders smoothly
+      });
+    }
+  }
+}
 
 /**
  * Global Event Delegation for Interactive UI Elements (Code Copy, FAQ Accordions, etc.)
@@ -267,8 +285,13 @@ function updateSEO(title, description, image, path, schemaData = null) {
   const site = getSiteConfig();
   const fullTitle = title || site.seo?.defaultTitle || `${site.name} — ${site.tagline}`;
   const fullDesc = description || site.seo?.defaultDescription || site.description;
-  const fullImg = image || site.logo || '/assets/logo.webp';
-  const fullUrl = `https://media.lizzdo.com/${path ? (path.startsWith('#') ? path : `#${path}`) : ''}`;
+  const rawImg = image || site.defaultSocialImage || site.logo || '/assets/og-image.jpg';
+  const fullImg = rawImg.startsWith('http') ? rawImg : `https://media.lizzdo.com${rawImg.startsWith('/') ? '' : '/'}${rawImg}`;
+  
+  const cleanPath = path ? path.replace(/^#\/?/, '').replace(/^\/+/, '') : '';
+  const canonicalUrl = cleanPath && cleanPath !== 'home' 
+    ? `https://media.lizzdo.com/${cleanPath}` 
+    : `https://media.lizzdo.com/`;
 
   document.title = fullTitle;
 
@@ -284,7 +307,7 @@ function updateSEO(title, description, image, path, schemaData = null) {
   const ogImg = document.querySelector('meta[property="og:image"]');
   if (ogImg) ogImg.setAttribute('content', fullImg);
   const ogUrl = document.querySelector('meta[property="og:url"]');
-  if (ogUrl) ogUrl.setAttribute('content', fullUrl);
+  if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
 
   // Twitter
   const twTitle = document.querySelector('meta[name="twitter:title"]');
@@ -294,11 +317,11 @@ function updateSEO(title, description, image, path, schemaData = null) {
   const twImg = document.querySelector('meta[name="twitter:image"]');
   if (twImg) twImg.setAttribute('content', fullImg);
   const twUrl = document.querySelector('meta[name="twitter:url"]');
-  if (twUrl) twUrl.setAttribute('content', fullUrl);
+  if (twUrl) twUrl.setAttribute('content', canonicalUrl);
 
   // Canonical
   const canonical = document.querySelector('link[rel="canonical"]');
-  if (canonical) canonical.setAttribute('href', fullUrl);
+  if (canonical) canonical.setAttribute('href', canonicalUrl);
 
   // Structured Data (JSON-LD)
   let script = document.getElementById('structured-data');
@@ -313,11 +336,18 @@ function updateSEO(title, description, image, path, schemaData = null) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": "https://media.lizzdo.com/#organization",
         "name": site.name || "Lizzdo Media",
         "url": "https://media.lizzdo.com",
         "logo": "https://media.lizzdo.com/assets/logo.webp",
+        "image": "https://media.lizzdo.com/assets/og-image.jpg",
+        "description": site.description,
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Lizzdo",
+          "url": "https://lizzdo.com"
+        },
         "sameAs": [
           site.socials?.instagram,
           site.socials?.facebook,

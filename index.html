@@ -15,17 +15,55 @@
     <meta property="og:url" content="https://media.lizzdo.com/" />
     <meta property="og:title" content="Lizzdo Media — Creative & Digital Services" />
     <meta property="og:description" content="Creative & digital services division of Lizzdo. Branding, visual content, marketing & simple modern websites." />
-    <meta property="og:image" content="/assets/logo.webp" />
+    <meta property="og:image" content="https://media.lizzdo.com/assets/og-image.jpg" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://media.lizzdo.com/" />
     <meta name="twitter:title" content="Lizzdo Media — Creative & Digital Services" />
     <meta name="twitter:description" content="Creative & digital services division of Lizzdo. Branding, visual content, marketing & simple modern websites." />
-    <meta name="twitter:image" content="/assets/logo.webp" />
+    <meta name="twitter:image" content="https://media.lizzdo.com/assets/og-image.jpg" />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://media.lizzdo.com/" />
+
+    <!-- JSON-LD Structured Data for Crawlers -->
+    <script type="application/ld+json" id="structured-data">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["Organization", "ProfessionalService"],
+            "@id": "https://media.lizzdo.com/#organization",
+            "name": "Lizzdo Media",
+            "url": "https://media.lizzdo.com",
+            "logo": "https://media.lizzdo.com/assets/logo.webp",
+            "image": "https://media.lizzdo.com/assets/og-image.jpg",
+            "description": "Creative and digital services division of Lizzdo. Empowering modern businesses with enduring brand identities, high-impact marketing visuals, and streamlined websites.",
+            "parentOrganization": {
+              "@type": "Organization",
+              "name": "Lizzdo",
+              "url": "https://lizzdo.com"
+            },
+            "sameAs": [
+              "https://instagram.com/lizzdomedia",
+              "https://facebook.com/lizzdomedia",
+              "https://linkedin.com/company/lizzdo-media"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://media.lizzdo.com/#website",
+            "url": "https://media.lizzdo.com",
+            "name": "Lizzdo Media",
+            "description": "Creative & Digital Services by Lizzdo",
+            "publisher": {
+              "@id": "https://media.lizzdo.com/#organization"
+            }
+          }
+        ]
+      }
+    </script>
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,7 +93,7 @@
   <body>
     <!-- Full-viewport background video -->
     <div class="bg" id="bg-container">
-      <video class="bg-video" autoplay muted loop playsinline id="background-video">
+      <video class="bg-video" autoplay muted loop playsinline preload="metadata" poster="/assets/logo.webp" id="background-video">
         <source
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
           type="video/mp4"
@@ -111,9 +149,23 @@
         <a href="#contact" class="mobile-sign-in-btn">Start a Project</a>
       </nav>
 
-      <!-- Dynamic View Mount Point -->
+      <!-- Dynamic View Mount Point (Hydrated by main.js router) -->
       <div id="view-mount" style="width: 100%; display: flex; flex-direction: column; align-items: center; min-height: 0;">
-        <!-- Injected dynamically by main.js router -->
+        <noscript>
+          <main style="max-width: 800px; padding: 40px 20px; text-align: center; color: #ffffff;">
+            <h1 style="font-size: 32px; margin-bottom: 16px;">Lizzdo Media — Creative &amp; Digital Services</h1>
+            <p style="font-size: 16px; line-height: 1.6; color: #a6a6ac; margin-bottom: 24px;">
+              Lizzdo Media is the creative and digital services division of Lizzdo. We specialize in Brand Identity, Logo Design, Graphic Design, Social Media Content, Digital Marketing, and Simple Modern Websites.
+            </p>
+            <nav style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+              <a href="#services" style="color: #ffffff; text-decoration: underline;">Explore Services</a>
+              <a href="#work" style="color: #ffffff; text-decoration: underline;">View Portfolio</a>
+              <a href="#about" style="color: #ffffff; text-decoration: underline;">About Lizzdo Media</a>
+              <a href="#blog" style="color: #ffffff; text-decoration: underline;">Read Insights</a>
+              <a href="#contact" style="color: #ffffff; text-decoration: underline;">Contact Us</a>
+            </nav>
+          </main>
+        </noscript>
       </div>
     </div>
 
