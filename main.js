@@ -332,6 +332,9 @@ function updateSEO(title, description, image, path, schemaData = null) {
     document.head.appendChild(script);
   }
 
+  const faqs = getFAQ();
+  const services = getServices();
+
   const defaultSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -363,6 +366,36 @@ function updateSEO(title, description, image, path, schemaData = null) {
         "publisher": {
           "@id": "https://media.lizzdo.com/#organization"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://media.lizzdo.com/#faq",
+        "mainEntity": faqs.map(f => ({
+          "@type": "Question",
+          "name": f.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": f.answer
+          }
+        }))
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://media.lizzdo.com/#services-list",
+        "name": "Lizzdo Media Creative & Digital Services",
+        "itemListElement": services.map((s, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "item": {
+            "@type": "Service",
+            "name": s.title,
+            "description": s.summary || s.shortDescription,
+            "url": `https://media.lizzdo.com/services/${s.slug}`,
+            "provider": {
+              "@id": "https://media.lizzdo.com/#organization"
+            }
+          }
+        }))
       }
     ]
   };
@@ -734,7 +767,7 @@ function renderHomePage(container) {
             <a href="#work/${proj.slug}" class="project-card anim" style="--d: ${0.2 + idx * 0.08}s" id="home-project-card-${proj.slug}">
               <div class="project-thumb">
                 <span class="project-thumb-badge">${proj.category}</span>
-                <img src="${proj.featuredImage || '/assets/logo.webp'}" alt="${proj.title}" />
+                <img src="${proj.featuredImage || '/assets/logo.webp'}" alt="${proj.title}" loading="lazy" decoding="async" />
               </div>
               <div class="project-content">
                 <h3 class="project-title">${proj.title}</h3>
@@ -928,7 +961,7 @@ function renderHomePage(container) {
               <div class="testimonial-card">
                 <p class="testimonial-text">"${escapeHtml(t.testimonial)}"</p>
                 <div class="testimonial-author">
-                  ${t.image ? `<img src="${t.image}" alt="${t.clientName}" class="testimonial-avatar" />` : ''}
+                  ${t.image ? `<img src="${t.image}" alt="${t.clientName}" class="testimonial-avatar" loading="lazy" decoding="async" />` : ''}
                   <div>
                     <div class="testimonial-author-name">${escapeHtml(t.clientName)}</div>
                     <div class="testimonial-author-role">${escapeHtml(t.role || '')}${t.company ? ` • ${escapeHtml(t.company)}` : ''}</div>
@@ -1260,7 +1293,7 @@ function renderServiceDetail(container, slug) {
                 <a href="#work/${proj.slug}" class="project-card" id="related-card-${proj.slug}">
                   <div class="project-thumb">
                     <span class="project-thumb-badge">${proj.category}</span>
-                    <img src="${proj.featuredImage || '/assets/logo.webp'}" alt="${proj.title}" />
+                    <img src="${proj.featuredImage || '/assets/logo.webp'}" alt="${proj.title}" loading="lazy" decoding="async" />
                   </div>
                   <div class="project-content">
                     <h3 class="project-title">${proj.title}</h3>
