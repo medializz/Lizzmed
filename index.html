@@ -99,17 +99,59 @@
                 }
               }
             ]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://media.lizzdo.com/#service-brand-identity",
+            "name": "Brand Identity & Logo Design",
+            "serviceType": "Branding",
+            "description": "Comprehensive visual identity design including logo systems, typography, color palettes, and production-ready brand guidelines.",
+            "provider": {
+              "@id": "https://media.lizzdo.com/#organization"
+            },
+            "areaServed": "Global",
+            "url": "https://media.lizzdo.com/services/brand-identity"
+          },
+          {
+            "@type": "Service",
+            "@id": "https://media.lizzdo.com/#service-website-development",
+            "name": "Simple Modern Website Development",
+            "serviceType": "Web Development",
+            "description": "Clean, ultra-fast 1-to-3 page websites and landing pages optimized for conversions, mobile responsiveness, and direct WhatsApp communication.",
+            "provider": {
+              "@id": "https://media.lizzdo.com/#organization"
+            },
+            "areaServed": "Global",
+            "url": "https://media.lizzdo.com/services/website-development"
+          },
+          {
+            "@type": "Service",
+            "@id": "https://media.lizzdo.com/#service-digital-marketing",
+            "name": "Digital Marketing & Advertising Creatives",
+            "serviceType": "Digital Marketing",
+            "description": "High-converting ad creative design, promotional social media assets, and digital marketing materials built to scale your business.",
+            "provider": {
+              "@id": "https://media.lizzdo.com/#organization"
+            },
+            "areaServed": "Global",
+            "url": "https://media.lizzdo.com/services/digital-marketing"
           }
         ]
       }
     </script>
 
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter (Preloaded & Optimized) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="all"
     />
 
     <!-- OnlineWebFonts: BubbledotICG-FinePos -->
@@ -118,14 +160,22 @@
       rel="stylesheet"
     />
 
-    <!-- Font Awesome 6.5.2 -->
+    <!-- Font Awesome 6.5.2 (Deferred / Non-blocking) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      />
+    </noscript>
 
     <link rel="stylesheet" href="/styles.css" />
   </head>
